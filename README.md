@@ -25,7 +25,7 @@ v1.0.1 readme updates
 3. Superagent
 4. Postgres
 
-- Instructions that the user may need to follow in order to get your application up and running on their own computer
+- Instructions that the user may need to follow in order to get your application up and  running on their own computer
  
 **Given** that a user opens the application in their browser
 **When** they will be displayed with the applications homepage
