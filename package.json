@@ -1,0 +1,32 @@
+{
+  "name": "serious-project-301",
+  "version": "1.0.0",
+  "description": "- Project Name: AAA - Animal Adoption Application",
+  "main": "server.js",
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "ejs": "^3.0.2",
+    "express": "^4.17.1",
+    "method-override": "^3.0.0",
+    "node": "^13.13.0",
+    "nodemon": "^2.0.3",
+    "superagent": "^5.2.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "hi": "npm i dotenv ejs express method-override superagent nodemon "
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Team-Serious/serious-project-301.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Team-Serious/serious-project-301/issues"
+  },
+  "homepage": "https://github.com/Team-Serious/serious-project-301#readme"
+}
