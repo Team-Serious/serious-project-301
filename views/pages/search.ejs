@@ -1,0 +1,45 @@
+
+
+<head>
+    <%- include('../layout/head')%>
+
+    <!-- will be added from layot -->
+</head>
+
+<body>
+    <header>
+        <%- include('../layout/header')%>
+
+        <!-- will be added from layot -->
+    </header>
+    <main>
+        <!-- form to search  by keyword(breed) -->
+        <fieldset>
+            <legend> search form</legend>
+            <form action="/search" method="get">
+                <input type="text" name="breed" placeholder="Enter breed name">
+
+                <br>
+
+                <input type="radio" name="cat">
+                <label for="cat">Cat</label>
+
+                <input type="radio" name="dog">
+                <label for="dog">Dog</label>
+
+                <br>
+
+                <button type="submit">Search</button>
+
+
+
+            </form>
+        </fieldset>
+    </main>
+    <footer>
+        <%- include('../layout/footer')%>
+
+        <!-- will be added from layot -->
+    </footer>
+</body>
+
