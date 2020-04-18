@@ -1,4 +1,7 @@
-@import url("./fonts/font-awesome.min.css");
+/* base.css: for body and main and change something changed in reset.css */
+/* layout.css: general positioning   */
+/* modules.css: every file containe elements positioning for the elements of that page */
+/* themes.css: every file containe elements colors for the elements of that page */
 
 body{
   background-color: gray;
@@ -13,4 +16,16 @@ main{
   justify-content: center;
   flex-direction: column;
   align-items: center;
+  padding: 1%;
+}
+
+input[type="radio" i] {
+  background-color: initial;
+  cursor: default;
+  -webkit-appearance: radio;
+  box-sizing: border-box;
+  margin: 6px 0px 0px 8px;
+  padding: initial;
+  border: initial;
+  width: 5%;
 }

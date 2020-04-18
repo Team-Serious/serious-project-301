@@ -16,15 +16,17 @@
       <fieldset>
           <legend> search form</legend>
             <form action="/search-result" method="post">
-                <input type="text" name="breed" placeholder="Enter breed name" required>
+                <input  id="se" class="feedback-input" type="text" name="breed" placeholder="Enter breed name" required>
 
                 <br>
+<div>
+    <input type="radio" name="pet" value='cat' required>
+    <label for="cat">Cat</label>
 
-                <input type="radio" name="pet" value='cat' required>
-                <label for="cat">Cat</label>
+    <input type="radio" name="pet" value='dog' required>
+    <label for="dog">Dog</label>
 
-                <input type="radio" name="pet" value='dog' required>
-                <label for="dog">Dog</label>
+</div>
 
                 <br>
 
@@ -40,5 +42,7 @@
 
       <!-- will be added from layot -->
   </footer>
+  <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+  <script src="app.js"></script>
 </body>
 </html>

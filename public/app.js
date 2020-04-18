@@ -1,17 +1,30 @@
 'use strict';
 $(document).ready(function () {
-  // $('dropdown-menu').hide();
+  // drop down menu
   $('.drop').click(function () {
     $('.dropdown-menu').toggleClass('hidden');
     $('.arrow').toggleClass('up');
   });
-});
 
-$ (document).ready(function(){
+  // about us
+  $('.RowaidInfo').hover(function () {
+    $('.Rowaid').toggleClass('animate');
+  });
+  $('.HussineInfo').hover(function () {
+    $('.Hussine').toggleClass('animate');
+  });
+  $('.Batoolnfo').hover(function () {
+    $('.Batool').toggleClass('animate');
+  });
+  $('.DarahInfo').hover(function () {
+    $('.Darah').toggleClass('animate');
+  });
+
+  // search result
   $('.info-div').hide();
-  $('.info-btn').on('click',function(){
-
-      $('.info-div').toggle();
-  })
-
-})
+  $('.info-btn').on('click', function () {
+    let divId = $(this).attr('id');
+    divId = '#div'+divId;
+    $(divId).toggle();
+  });
+});

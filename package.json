@@ -10,13 +10,14 @@
     "method-override": "^3.0.0",
     "node": "^13.13.0",
     "nodemon": "^2.0.3",
+    "pg": "^8.0.2",
     "superagent": "^5.2.2"
   },
   "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js",
-    "hi": "npm i dotenv ejs express method-override superagent nodemon "
+    "hi": "npm i dotenv ejs express method-override superagent nodemon pg"
   },
   "repository": {
     "type": "git",

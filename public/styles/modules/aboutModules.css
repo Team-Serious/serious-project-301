@@ -1,0 +1,47 @@
+
+main>div{
+  width: 70%;
+}
+.photo {
+  width: 30%;
+  text-align: center;
+  transition: 5s;
+}
+
+.Darah,.Hussine {
+  display: block;
+  margin-bottom: 2%;
+  margin-top: 2%;
+  position: relative;
+  left: 35%;
+}
+
+.Batool,.Rowaid,.teamName {
+ width: 100%;
+}
+.photo>span {
+  display: block;
+}
+.photo>img {
+  width: 100%;
+}
+.three{
+  display: flex;
+justify-content: space-evenly;
+}
+.teamName {
+margin: 0 1%;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+
+.info>span{
+font-weight: bolder;
+font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+font-size: large;
+}
+
+.animate{
+transform: rotate(180deg);
+}
