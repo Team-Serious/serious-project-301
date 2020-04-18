@@ -43,10 +43,12 @@ function searchResulthHandler(req,res){
       url=`https://api.thecatapi.com/v1/images/search?breed_ids=${req.body.breed}&include_breeds=true&limit=10`;
       superagent.get(url)
       .then(data =>{
-          data.body.map( element =>{
-              const cat= new Cats(element);
+          data.body.map( (element,index) =>{
+              const cat= new Cats(element,index);
               petObjects.push(cat);
           });
+          res.render('pages/search-result' ,{data:petObjects} );
+
           res.send(petObjects);
          });
   }
@@ -54,18 +56,18 @@ function searchResulthHandler(req,res){
       url=`https://api.thedogapi.com/v1/images/search?size=med&mime_types=jpg&format=json&has_breeds=true&order=asc&page=0&limit=15&api_key=${process.env.API_KEY}`;
       superagent.get(url)
       .then(data =>{
-          data.body.map( element =>{
-              const dog= new Dogs(element);
+          data.body.map( (element,index) =>{
+              const dog= new Dogs(element,index);
               if (dog.breed == req.body.breed)
                 {petObjects.push(dog);}
           });
+          res.render('pages/search-result' ,{data:petObjects} );
           res.send(petObjects);
          });
   }
 
  
 
- // res.render('page/search-result');
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////

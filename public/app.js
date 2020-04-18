@@ -6,3 +6,12 @@ $(document).ready(function () {
     $('.arrow').toggleClass('up');
   });
 });
+
+$ (document).ready(function(){
+  $('.info-div').hide();
+  $('.info-btn').on('click',function(){
+
+      $('.info-div').toggle();
+  })
+
+})
