@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('../layout/head')%>
+    <title>Animal Adoption Application-Search Result</title>
+</head>
+
+<body>
+    <header>
+        <%- include('../layout/header')%>
+    </header>
+    <main>
+        <% data.forEach((element,index) =>{ %>
+        <% console.log('zzzzzzzzzzzzzz') %>
+
+        <div>
+            <img style="width: 150px;" src="<%=element.img%>" alt="">
+            <h4> <%=element.type%> name is: <%=element.name%></h4>
+            <h4><%=element.type%> breed is: <%=element.breed%></h4>
+        </div>
+        <button class="info-btn" name="info">Learn More About <%=element.name%></button>
+        <div class="info-div">
+            <h2><%=element.type%> name is: <%=element.name%></h2>
+            <h4><%=element.type%> breed is:<%=element.breed%></h4>
+            <h4><%=element.type%> minimum weight is:<%=element.weight%> kg</h4>
+            <img style="width: 150px;" src="<%=element.img%>" alt="<%=element.name%>">
+            <h3>Little description:</h3>
+            <p><%=element.description%></p>
+            <h4><%=element.type%> origin is from :<%=element.origin%></h4>
+        </div>
+        <%});%>
+    </main>
+    <footer>
+        <%- include('../layout/footer')%>
+
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+   <script src="app.js"></script>
+</body>
+
+</html>

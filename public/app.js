@@ -6,18 +6,22 @@ $(document).ready(function () {
     $('.arrow').toggleClass('up');
   });
 
-  $('.RowaidInfo').hover(function(){
+  $('.RowaidInfo').hover(function () {
     $('.Rowaid').toggleClass('animate');
   });
-  $('.HussineInfo').hover(function(){
+  $('.HussineInfo').hover(function () {
     $('.Hussine').toggleClass('animate');
   });
-  $('.Batoolnfo').hover(function(){
+  $('.Batoolnfo').hover(function () {
     $('.Batool').toggleClass('animate');
   });
-  $('.DarahInfo').hover(function(){
+  $('.DarahInfo').hover(function () {
     $('.Darah').toggleClass('animate');
   });
+
+  $('.info-div').hide();
+  $('.info-btn').on('click', function () {
+
+    $('.info-div').toggle();
+  });
 });
-
-
