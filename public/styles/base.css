@@ -1,4 +1,7 @@
-@import url("./fonts/font-awesome.min.css");
+/* base.css: for body and main and change something changed in reset.css */
+/* layout.css: general positioning   */
+/* modules.css: every file containe elements positioning for the elements of that page */
+/* themes.css: every file containe elements colors for the elements of that page */
 
 body{
   background-color: gray;

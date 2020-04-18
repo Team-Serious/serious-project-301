@@ -1,20 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <%- include('../layout/head')%>
-  <title>Document</title>
+  <title>About</title>
 </head>
-<body>
-  <main>
-    <img class="Darah" src="" alt="Darah">
-    <img class="Batool" src="" alt="Batool">
-    <img class="Hussine" src="" alt="Hussine">
-    <img class="Rowaid" src="" alt="Rowaid">
 
-    <p class="DarahInfo">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet aspernatur, quis expedita impe</p>
-    <p class="Batoolnfo" >Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet aspernatur, quis expedita impe</p>
-    <p class="HussineInfo" >Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet aspernatur, quis expedita impe</p>
-    <p class="RowaidInfo" >Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet aspernatur, quis expedita impe</p>
+<body>
+  <header>
+    <%- include('../layout/header')%>
+  </header>
+  <main>
+    <div>
+      <div class="Darah photo">
+        <img src="https://via.placeholder.com/300" alt="Darah">
+        <span>Darah</span>
+      </div>
+      <div class="three"> 
+        <div class="Batool photo">
+          <img src="https://via.placeholder.com/300" alt="Batool">
+          <span>Batool</span>
+        </div>
+        <div class="teamName">
+          <h2>Serious Team</h2>
+        </div>
+        <div class="Rowaid photo">
+          <img src="https://via.placeholder.com/300" alt="Rowaid">
+          <span>Ruwaid</span>
+        </div>
+      </div>
+      <div class="Hussine photo">
+        <img src="https://via.placeholder.com/300" alt="Hussine">
+        <span>Hussine</span>
+      </div>
+  
+      <p class="DarahInfo info"><span> Darah: </span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet aspernatur, quis expedita impe
+      </p>
+      <p class="Batoolnfo info"><span>Batool:</span>  Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet aspernatur, quis expedita impe
+      </p>
+      <p class="HussineInfo info"><span>Hussine:</span>  Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet aspernatur, quis expedita
+        impe</p>
+      <p class="RowaidInfo info"><span>Ruwaid:</span>  Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet aspernatur, quis expedita
+        impe</p>
+    </div>
   </main>
 
   <footer>
@@ -24,4 +52,5 @@
   <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
   <script src="app.js"></script>
 </body>
+
 </html>

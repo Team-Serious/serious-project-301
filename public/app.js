@@ -1,11 +1,12 @@
 'use strict';
 $(document).ready(function () {
-  // $('dropdown-menu').hide();
+  // drop down menu
   $('.drop').click(function () {
     $('.dropdown-menu').toggleClass('hidden');
     $('.arrow').toggleClass('up');
   });
 
+  // about us
   $('.RowaidInfo').hover(function () {
     $('.Rowaid').toggleClass('animate');
   });
@@ -19,9 +20,11 @@ $(document).ready(function () {
     $('.Darah').toggleClass('animate');
   });
 
+  // search result
   $('.info-div').hide();
   $('.info-btn').on('click', function () {
-
-    $('.info-div').toggle();
+    let divId = $(this).attr('id');
+    divId = '#div'+divId;
+    $(divId).toggle();
   });
 });

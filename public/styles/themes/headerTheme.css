@@ -1,0 +1,13 @@
+header li{
+  background-color: rgb(233, 197, 197);
+  border: solid grey;
+}
+.arrow{
+  border: solid rgb(240, 237, 237);
+  border-width: 0 3px 3px 0;
+}
+.drop{
+  color: aliceblue;
+  background-color: black;
+}
+

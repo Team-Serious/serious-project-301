@@ -19,22 +19,25 @@ app.set('view engine', 'ejs');
 app.get('/search', searchHandler);
 app.get('/', homeHandler);
 app.post('/search-result', searchResulthHandler);
+app.get('/about',aboutHandler);
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
-///// function searchhandler for ('/search')
-function homeHandler(req, res) {
-
-  res.render('pages/home');
+////// function aboutHandler for ('/about')
+function aboutHandler(req,res){
+  res.render('pages/about');
 }
 
 
+///// function homehandler for ('/')
+function homeHandler(req, res) {
+  res.render('pages/home');
+}
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ///// function searchhandler for ('/search')
 function searchHandler(req, res) {
-
   res.render('pages/search');
 }
 
-
+///// function searchResulthandler for ('/search-result')
 function searchResulthHandler(req, res) {
   let petObjects = [];
   let url;
@@ -47,8 +50,7 @@ function searchResulthHandler(req, res) {
           petObjects.push(cat);
         });
         res.render('pages/search-result', { data: petObjects });
-
-        res.send(petObjects);
+        // res.send(petObjects);
       });
   }
   if (req.body.pet === 'dog') {
@@ -60,12 +62,9 @@ function searchResulthHandler(req, res) {
           if (dog.breed === req.body.breed) { petObjects.push(dog); }
         });
         res.render('pages/search-result', { data: petObjects });
-        res.send(petObjects);
+        // res.send(petObjects);
       });
   }
-
-
-
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////

@@ -1,12 +1,8 @@
-header li{
-  background-color: rgb(233, 197, 197);
-  border: solid grey;
-}
-.arrow{
-  border: solid rgb(240, 237, 237);
-  border-width: 0 3px 3px 0;
-}
-.drop{
-  color: aliceblue;
-  background-color: black;
-}
+@import url("./modules/headerModules.css");
+@import url("./modules/footerModules.css");
+@import url("./modules/HomeModules.css");
+@import url("./modules/searchModules.css");
+@import url("./modules/aboutModules.css");
+
+
+/*****************************************************************************************************/
