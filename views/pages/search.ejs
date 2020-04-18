@@ -1,44 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <%- include('../layout/head')%>
     <title>Animal Adoption Application-Search</title>
-  </head>
+</head>
 
 <body>
-  <header>
-      <%- include('../layout/header')%>
-      <!-- will be added from layot -->
-  </header>
+    <header>
+        <%- include('../layout/header')%>
+    </header>
 
-  <main>
-      <!-- form to search  by keyword(breed) -->
-      <fieldset>
-          <legend> search form</legend>
-          <form action="/search" method="get">
-              <input type="text" name="breed" placeholder="Enter breed name">
+    <main>
+        <!-- form to search  by keyword(breed) -->
+        <fieldset>
+            <legend> search form</legend>
+            <form action="/search" method="POST">
+                <input id="se" class="feedback-input" type="text" name="breed" placeholder="Enter breed name" required>
 
-              <br>
+                <br>
 
-              <input type="radio" name="cat">
-              <label for="cat">Cat</label>
+                <div>
+                    <input type="radio" name="pet">
+                    <label for="cat">Cat</label>
+    
+                    <input type="radio" name="pet">
+                    <label for="dog">Dog</label>
+                </div>
 
-              <input type="radio" name="dog">
-              <label for="dog">Dog</label>
+                <br>
 
-              <br>
-
-              <button type="submit">Search</button>
+                <button type="submit">Search</button>
 
 
 
-          </form>
-      </fieldset>
-  </main>
-  <footer>
-      <%- include('../layout/footer')%>
-
-      <!-- will be added from layot -->
-  </footer>
+            </form>
+        </fieldset>
+    </main>
+    <footer>
+        <%- include('../layout/footer')%>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    <script src="app.js"></script>
 </body>
+
 </html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- <%- include('../layout/head')%> -->
+  <style>
+    main {
+      /* text-align: center; */
+      justify-content: center;
+    display: flex;
+    }
+
+    main>div{
+      width: 70%;
+    }
+    .photo {
+      width: 30%;
+      text-align: center;
+      transition: 5s;
+    }
+
+    .Darah,.Hussine {
+      display: block;
+      margin-bottom: 2%;
+      margin-top: 2%;
+      position: relative;
+      left: 35%;
+    }
+
+    .Batool,.Rowaid,.teamName {
+     width: 100%;
+    }
+    .photo>span {
+      display: block;
+    }
+    .photo>img {
+      width: 100%;
+    }
+    .three{
+      display: flex;
+    justify-content: space-evenly;
+}
+.teamName {
+    margin: 0 1%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.info:hover span{
+  color: brown;
+}
+.info>span{
+  font-weight: bolder;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-size: large;
+}
+.RowaidInfo:hover .Rowaid>span{
+  color: blue;
+
+}
+.animate{
+transform: rotate(180deg);
+}
+  </style>
+  <title>About</title>
+</head>
+
+<body>
+  <main>
+    <div>
+      <div class="Darah photo">
+        <img src="https://via.placeholder.com/300" alt="Darah">
+        <span>Darah</span>
+      </div>
+      <div class="three"> 
+        <div class="Batool photo">
+          <img src="https://via.placeholder.com/300" alt="Batool">
+          <span>Batool</span>
+        </div>
+        <div class="teamName">
+          <h2>Serious Team</h2>
+        </div>
+        <div class="Rowaid photo">
+          <img src="https://via.placeholder.com/300" alt="Rowaid">
+          <span>Ruwaid</span>
+        </div>
+      </div>
+      <div class="Hussine photo">
+        <img src="https://via.placeholder.com/300" alt="Hussine">
+        <span>Hussine</span>
+      </div>
+  
+      <p class="DarahInfo info"><span> Darah: </span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet aspernatur, quis expedita impe
+      </p>
+      <p class="Batoolnfo info"><span>Batool:</span>  Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet aspernatur, quis expedita impe
+      </p>
+      <p class="HussineInfo info"><span>Hussine:</span>  Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet aspernatur, quis expedita
+        impe</p>
+      <p class="RowaidInfo info"><span>Ruwaid:</span>  Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet aspernatur, quis expedita
+        impe</p>
+    </div>
+  </main>
+
+  <footer>
+    <!-- <%- include('../layout/footer')%> -->
+  </footer>
+
+  <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+  <script src="app.js"></script>
+</body>
+
+</html>
