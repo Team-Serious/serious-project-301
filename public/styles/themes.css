@@ -1,4 +1,5 @@
 @import url("./themes/headerTheme.css");
-@import url("./themes/homeMainTheme.css");
+@import url("./themes/homeTheme.css");
 @import url("./themes/searchTheme.css");
 @import url("./themes/aboutTheme.css");
+@import url("./themes/searchResultsTheme.css");

@@ -41,54 +41,6 @@ input{
 }
 
 /*****************************************************************/
-
-/* test */
-.Cat{
-  position: relative;
-  top: 20px;
-  height: 70px;
-  width: 533px;
-  text-align: center;
-}
-
-header .logo{
-  position: absolute;
-  width: 50%;
-  top: -30px;
-  transition: 0.8s;
-  width: 100px;
-  height: 82px;
-  /* background: url("https://freesvg.org/img/Grooming-Cat-Line-Art.png"); */
-  background: url("https://freesvg.org/img/inhabitants-npc-kitty.png") ;
-  background-size: 100px 82px;  
-  opacity: 0;
-}
-.Cat h2{
-  position: absolute;
-  width: 100%;
-  height: 70px;
-  /* background: #d0b885;  */
-  opacity: 1;
-  /* border:2px solid #000;  */
-  border-radius: 20px;
-  font-size: 40px;
-}
-.Cat:hover span{
-  top: -60px;
-  animation: aa 1s ease-in-out forwards;
-}
-
-@keyframes aa {
-  0%{
-    opacity: 0;
-  }
-  50%{
-    opacity: 0.4;
-  }
-  100%{
-    opacity: 1;
-  }
-}
 /*******************************************************/
 /* **********************************************/
 /***************************************************************************/

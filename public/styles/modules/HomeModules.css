@@ -8,3 +8,49 @@ main >section:first-child >div{
 main >section{
   margin: 10px 0;
 }
+.searchBtn{
+  width: 10%;
+}
+.searchBtn>button{
+  width: 100%;
+  padding: 20px;
+  cursor: pointer;
+}
+
+/***********************************************************************************/
+
+/* test */
+.Cat{
+  position: relative;
+  width: 100%;
+  height: 70px;
+}
+.Cat > img{
+  position: absolute;
+  width: 50%;
+  clip: rect(0,232px,115px,0);
+  top: -53px;
+  transition: 0.8s;
+}
+.Cat button{
+  position: absolute;
+  width: 100%;
+  height: 70px;
+  border-radius: 20px;
+  font-size: 40px;
+  font-family: 'EDO SZ';
+  cursor: pointer;
+}
+.Cat:hover img{
+  top: -115px;
+}
+
+
+.Cat > img {
+  position: absolute;
+  width: 30%;
+  clip: rect(0,245px,119px,0);
+  top: -51px;
+  transition: 0.8s;
+  height: 179px;
+}

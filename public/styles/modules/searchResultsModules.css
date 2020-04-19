@@ -1,0 +1,36 @@
+#searchResultMain{
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+
+#searchResultMain> .shortDisc{
+  border: chartreuse solid;
+  /* display: flex; */
+  /* justify-content: center; */
+  /* flex-direction: column; */
+  width: 23%;
+  height: 390px;
+  text-align: center;
+  /* align-self: end; */
+  margin: 10px 0;
+}
+#searchResultMain> .shortDisc >img{
+  border-radius: 93px;
+  margin: 10px auto;
+  /* width: 50%; */
+  height: 40%;
+}
+#searchResultMain> .shortDisc >h4{
+  font-size: 23px;
+  margin: 25px auto;
+  border: solid;
+  width: 90%;
+  padding: 3px;
+}
+
+.info-btn{
+  padding: 9px;
+  border-radius: 8px;
+  cursor: pointer;
+}
