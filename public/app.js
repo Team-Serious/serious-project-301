@@ -27,4 +27,12 @@ $(document).ready(function () {
     divId = '#div'+divId;
     $(divId).toggle();
   });
+
+  $('.closepop').on('click', function(){
+    let popId= $(this).attr('id');
+    console.log(popId);
+    popId= '#di'+ popId;
+    console.log(popId);
+    $(popId).toggle();
+  })
 });
