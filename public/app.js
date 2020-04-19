@@ -22,17 +22,24 @@ $(document).ready(function () {
 
   // search result
   $('.info-div').hide();
+  $('.bgblack').hide();
   $('.info-btn').on('click', function () {
     let divId = $(this).attr('id');
     divId = '#div'+divId;
     $(divId).toggle();
+    $('.bgblack').show();
+  });
+
+  $('.bgblack').on('click', function(){
+    $('.info-div').hide();
+    $('.bgblack').hide();
   });
 
   $('.closepop').on('click', function(){
     let popId= $(this).attr('id');
-    console.log(popId);
     popId= '#di'+ popId;
-    console.log(popId);
     $(popId).toggle();
+    $('.bgblack').hide();
   })
+ 
 });

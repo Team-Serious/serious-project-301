@@ -3,3 +3,7 @@
 @import url("./themes/searchTheme.css");
 @import url("./themes/aboutTheme.css");
 @import url("./themes/searchResultsTheme.css");
+
+body{
+    color: #301656;
+}
