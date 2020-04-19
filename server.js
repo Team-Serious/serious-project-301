@@ -16,6 +16,10 @@ app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride('_method'));
 
 app.set('view engine', 'ejs');
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+let names = ['Kyrie', 'Sage', 'Justice', 'Alfie', 'Haven', 'Reece', 'Finn', 'Sterling', 'Landry', 'Indigo', 'Shay', 'Jules', 'Halo', 'Coco', 'Blair', 'Navy', 'Miller', 'Ocean', 'Cleo', 'Lennox','Gianno', 'Frankie','Jamie' ,'Oakley', 'Drew',  'Armani' ,'Noel', 'Milan', 'Lennon','London',  'Charlie',  'alexis', 'Taylor','Blake', 'Quinn', 'Parker', 'Angel', 'Jordan'  ];
+
+let selectedNames= [];
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ///// ROUTS
 app.get('/search', searchHandler);
@@ -28,8 +32,12 @@ app.get('/about', aboutHandler);
 app.get('/rehome',rehomeHandler);
 app.get('/user',userHandler);
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
-function userHandler(req,res){
-  res.render('pages/user');
+function userHandler(req,res){     /// this to render the user seletion   (Hussien , complete from here).
+  let SQL = 'SELECT * FROM selected_pet;';
+  client.query(SQL)
+      .then(data => {
+          res.render('pages/user',{pets:data.rows } );
+      });
 }
 
 function rehomeHandler(req,res){
@@ -51,41 +59,27 @@ function homeHandler(req, res) {
 function searchHandler(req, res) {
   res.render('pages/search');
 }
+let petObjects = [];
 
+/// Insert the selected pet to the DB  ( selected_pet table )   this just do the insert and redirect to '/user'
+app.post('/pet/:pet_name', (req, res)=>{
+  let unique = req.params.pet_name;
+  petObjects.forEach(val =>{
+      if(unique === val.pet_name){
+          let  selectedPet= val;
+          let SQL = 'INSERT INTO selected_pet (pet_type,pet_name,gender,breed, pet_weight, img, description, origin, search_req) VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9);';
+          let safeValues = [val.pet_type, val.pet_name, val.gender, val.breed, val.pet_weight, val.img, val.description, val.origin, val.search_req];
+          client.query(SQL,safeValues)
+          .then(data =>{
+              res.redirect('/user');
+          });
+      }
+  });
+});
 
-
-// const theLocation=req.query.city;
-// let SQL =`SELECT * FROM thelocations WHERE search_query='${theLocation}'`;
-// console.log(SQL);
-// client.query(SQL)
-// .then(data =>{
-//     if (data.rows.length >0){
-//     console.log('from DB',data.rows);
-//     res.send(data.rows[0]);}
-//     else {
-//         const key= process.env.GEOCODE_API_KEY;
-//         const url= `https://eu1.locationiq.com/v1/search.php?key=${key}&q=${theLocation}&format=json`;
-//         superagent.get(url)
-//         .then(data1 =>{
-//             const locationInfo= new Location(theLocation, data1.body);
-//             res.send(locationInfo);
-//             let SQL = 'INSERT INTO thelocations (search_query,formatted_query,latitude,longitude) VALUES ($1,$2,$3,$4)';
-//             let safeValues= [locationInfo.search_query , locationInfo.formatted_query , locationInfo.latitude , locationInfo.longitude];
-//            client.query(SQL, safeValues)
-//            .then( data =>{
-//             console.log('added to DB',data.rows);
-//            });
-//         });
-//     }
-// })
-// .catch (() => {        res.send('error');    });
-
-
-///// function searchResulthandler for ('/search-result')
 function searchResulthHandler(req, res) {
 
 
-  let petObjects = [];
   let url;
   if (req.body.pet === 'cat') {
     console.log('cats');
@@ -107,7 +101,12 @@ function searchResulthHandler(req, res) {
           superagent.get(url)
             .then(data => {
               data.body.map((element, index) => {
-                const cat = new Cats(element, req.body.breed, index);
+                let name= names[Math.floor((Math.random() * names.length))];
+                while (selectedNames.includes(name)){
+                  name= names[Math.floor((Math.random() * names.length))];
+                }
+                selectedNames.push(name);
+                const cat = new Cats(element, req.body.breed, name,index);
                 petObjects.push(cat);
                 let SQL1 = 'INSERT INTO search_result (pet_type,pet_name,gender,breed, pet_weight, img, description, origin, search_req) VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9);';
                 let safeValues = [cat.pet_type, cat.pet_name, cat.gender, cat.breed, cat.pet_weight, cat.img, cat.description, cat.origin, req.body.breed];
@@ -142,7 +141,12 @@ function searchResulthHandler(req, res) {
           superagent.get(url)
             .then(data => {
               data.body.map((element, index) => {
-                const dog = new Dogs(element, req.body.breed, index);
+                let name= names[Math.floor((Math.random() * names.length))];
+                selectedNames.push(name);
+                while (selectedNames.includes(name)){
+                  name= names[Math.floor((Math.random() * names.length))];
+                }
+                const dog = new Dogs(element, req.body.breed, name,index);
                 if (dog.breed === req.body.breed) {
                   petObjects.push(dog);
                   let SQL1 = 'INSERT INTO search_result (pet_type,pet_name,gender,breed, pet_weight, img, description, origin, search_req) VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9);';
@@ -163,16 +167,13 @@ function searchResulthHandler(req, res) {
 
 
 
-
-let names = ['Poppy', 'Bella', 'Molly', 'Alfie', 'Charlie', 'Daisy', 'Rosie', 'Teddy', 'Lola', 'Millie', 'Bella', 'Tilly', 'Lola', 'Coco', 'Luna', 'Molly', 'Rosie', 'Phoebe'];
-
 let gender = ['Male', 'Female'];
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////// CATS  CONSTRUCTOR
-function Cats(data, req) {
+function Cats(data, req, name) {
   this.pet_type = 'cat';
-  this.pet_name = names[Math.floor((Math.random() * names.length))];
+  this.pet_name = name;
   this.gender = gender[Math.floor((Math.random() * gender.length))];
   this.breed = data.breeds[0].name;
   this.pet_weight = data.breeds[0].weight.metric.substring(0, 2);
@@ -184,9 +185,9 @@ function Cats(data, req) {
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ///// DOGS CONSTRUCTOR
-function Dogs(data, req) {
+function Dogs(data, req, name) {
   this.pet_type = 'dog';
-  this.pet_name = names[Math.floor((Math.random() * names.length))];
+  this.pet_name = name;
   this.gender = gender[Math.floor((Math.random() * gender.length))];
   this.breed = data.breeds[0].name;
   this.pet_weight = data.breeds[0].weight.metric.substring(0, 2);

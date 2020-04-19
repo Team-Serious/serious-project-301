@@ -18,6 +18,9 @@
             <img style="width: 150px;" src="<%=element.img%>" alt="">
             <h4> <%=element.pet_type%> name is: <%=element.pet_name%></h4>
             <h4><%=element.pet_type%> breed is: <%=element.breed%></h4>
+            <form action='/pet/<%= element.pet_name%>' method='post'>
+                <button type="submit" class="btns">Adopt this pet</button>
+            </form>
             <button id="<%=index%>" class="info-btn" name="info">Learn More About <%=element.pet_name%></button>
             <div id="div<%=index%>" class="info-div">
                 <div id="popTitle<%=index%>" class="pop-div">  
