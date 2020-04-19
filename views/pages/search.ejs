@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <%- include('../layout/head')%>
     <title>Animal Adoption Application-Search</title>
-</head>
+  </head>
 
 <body>
     <img id="background" src="../../images/seriousbg.png" alt="background">
@@ -13,22 +12,22 @@
       <!-- will be added from layot -->
   </header>
 
-  <main>
+  <main id="searchMain">
       <!-- form to search  by keyword(breed) -->
       <fieldset>
           <legend> search form</legend>
             <form action="/search-result" method="post">
-                <input id="se" class="feedback-input" type="text" name="breed" placeholder="Enter breed name" required>
+                <input  id="se" class="feedback-input" type="text" name="breed" placeholder="Enter breed name" required>
 
                 <br>
-                <div>
-                    <input type="radio" name="pet" value='cat' required>
-                    <label for="cat">Cat</label>
+<div>
+    <input type="radio" name="pet" value='cat' required>
+    <label for="cat">Cat</label>
 
-                    <input type="radio" name="pet" value='dog' required>
-                    <label for="dog">Dog</label>
+    <input type="radio" name="pet" value='dog' required>
+    <label for="dog">Dog</label>
 
-                </div>
+</div>
 
                 <br>
 
@@ -37,15 +36,14 @@
 
 
             </form>
-        </fieldset>
-    </main>
-    <footer>
-        <%- include('../layout/footer')%>
+      </fieldset>
+  </main>
+  <footer>
+      <%- include('../layout/footer')%>
 
-        <!-- will be added from layot -->
-    </footer>
-    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
-    <script src="app.js"></script>
+      <!-- will be added from layot -->
+  </footer>
+  <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+  <script src="app.js"></script>
 </body>
-
 </html>

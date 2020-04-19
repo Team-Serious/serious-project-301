@@ -23,6 +23,19 @@ app.get('/', homeHandler);
 app.post('/search-result', searchResulthHandler);
 app.get('/about', aboutHandler);
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+app.get('/rehome',rehomeHandler);
+app.post('/user',userHandler);
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////
+function userHandler(req,res){
+  res.render('pages/user');
+}
+
+function rehomeHandler(req,res){
+  res.render('pages/rehome');
+}
+
 ////// function aboutHandler for ('/about')
 function aboutHandler(req, res) {
   res.render('pages/about');
@@ -193,4 +206,3 @@ client.connect()
     });
 
   });
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////
