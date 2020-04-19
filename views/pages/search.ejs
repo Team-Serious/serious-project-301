@@ -7,14 +7,16 @@
 </head>
 
 <body>
-    <header>
-        <%- include('../layout/header')%>
-        <!-- will be added from layot -->
-    </header>
-    <main id="searchMain">
-        <!-- form to search  by keyword(breed) -->
-        <fieldset>
-            <legend> search form</legend>
+    <img id="background" src="../../images/seriousbg.png" alt="background">
+  <header>
+      <%- include('../layout/header')%>
+      <!-- will be added from layot -->
+  </header>
+
+  <main>
+      <!-- form to search  by keyword(breed) -->
+      <fieldset>
+          <legend> search form</legend>
             <form action="/search-result" method="post">
                 <input id="se" class="feedback-input" type="text" name="breed" placeholder="Enter breed name" required>
 

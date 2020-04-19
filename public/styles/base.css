@@ -2,13 +2,19 @@
 /* layout.css: general positioning   */
 /* modules.css: every file containe elements positioning for the elements of that page */
 /* themes.css: every file containe elements colors for the elements of that page */
-
-body{
-  background-color: gray;
+@import url("https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz&display=swap");
+html{
   width: 95%;
+}
+body{
+  /* background-color: gray; */
+  max-width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  font-family: 'Yanone Kaffeesatz', sans-serif;
+  /* background-image: url('../images/seriousbg.png'); */
+  /* background-repeat: no-repeat; */
 }
 main{
   width: 100%;
@@ -28,4 +34,10 @@ input[type="radio" i] {
   padding: initial;
   border: initial;
   width: 5%;
+}
+#background{
+  width: 100%;
+  position: fixed;
+  z-index: -5;
+  opacity: 0.1;
 }

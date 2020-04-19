@@ -7,9 +7,11 @@
 </head>
 
 <body>
+    <img id="background" src="../../images/seriousbg.png" alt="background">
     <header>
         <%- include('../layout/header')%>
     </header>
+    <div class="bgblack"></div>
     <main id="searchResultMain">
         <% data.forEach((element,index) =>{ %>
         <div class="shortDisc">
@@ -22,11 +24,13 @@
                     <h2><%=element.pet_name%></h2>
                     <button class="closepop" id="v<%=index%>">&times;</button>
                 </div>
-                <h4>Gernder:<%=element.gender%> </h4>
-                <h4><%=element.pet_type%> minimum weight is:<%=element.pet_weight%> kg</h4>
-                <h3>Little description:</h3>
-                <p><%=element.description%></p>
-                <h4><%=element.pet_type%> origin is from :<%=element.origin%></h4>
+                <div class="pop-desc">
+                    <h4>Gender:<%=element.gender%> </h4>
+                    <h4><%=element.pet_type%> minimum weight is:<%=element.pet_weight%> kg</h4>
+                    <h3>Little description:</h3>
+                    <p><%=element.description%></p>
+                    <h4><%=element.pet_type%> origin is from :<%=element.origin%></h4>
+                </div>
             </div>
         </div>
         <%});%>
