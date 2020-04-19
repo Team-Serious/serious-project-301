@@ -34,3 +34,8 @@
   border-radius: 8px;
   cursor: pointer;
 }
+.info-div{
+  position: absolute;
+  border: green solid;
+  background-color: aliceblue;
+}
