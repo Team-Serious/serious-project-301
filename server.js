@@ -26,7 +26,7 @@ app.get('/about', aboutHandler);
 
 
 app.get('/rehome',rehomeHandler);
-app.post('/user',userHandler);
+app.get('/user',userHandler);
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
 function userHandler(req,res){
   res.render('pages/user');
