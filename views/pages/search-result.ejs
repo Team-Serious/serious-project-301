@@ -14,14 +14,19 @@
         <% data.forEach((element,index) =>{ %>
           <div class="shortDisc">
             <img style="width: 150px;" src="<%=element.img%>" alt="">
-            <h4> <%=element.type%> name is: <%=element.name%></h4>
-            <h4><%=element.type%> breed is: <%=element.breed%></h4>
-            <button id="<%=index%>" class="info-btn" name="info">Learn More About <%=element.name%></button>
+            <h4> <%=element.pet_type%> name is: <%=element.pet_name%></h4>
+            <h4><%=element.pet_type%> breed is: <%=element.breed%></h4>
+            <button id="<%=index%>" class="info-btn" name="info">Learn More About <%=element.pet_name%></button>
             <div id="div<%=index%>" class="info-div">
-                <h4><%=element.type%> minimum weight is:<%=element.weight%> kg</h4>
+                <div id="popTitle<%=index%>" class="pop-div">  
+                    <h2><%=element.pet_name%></h2>
+                    <button class="closepop" id="v<%=index%>">&times;</button>
+                </div>
+                <h4>Gernder:<%=element.gender%> </h4>
+                <h4><%=element.pet_type%> minimum weight is:<%=element.pet_weight%> kg</h4>
                 <h3>Little description:</h3>
                 <p><%=element.description%></p>
-                <h4><%=element.type%> origin is from :<%=element.origin%></h4>
+                <h4><%=element.pet_type%> origin is from :<%=element.origin%></h4>
             </div>
         </div>
         <%});%>

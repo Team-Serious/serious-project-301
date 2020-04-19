@@ -42,7 +42,7 @@ function searchResulthHandler(req, res) {
   let petObjects = [];
   let url;
   if (req.body.pet === 'cat') {
-    url = `https://api.thecatapi.com/v1/images/search?breed_ids=${req.body.breed}&include_breeds=true&limit=10`;
+    url = `https://api.thecatapi.com/v1/images/search?breed_ids=${req.body.breed}&include_breeds=true&limit=12`;
     superagent.get(url)
       .then(data => {
         data.body.map((element, index) => {
@@ -67,13 +67,19 @@ function searchResulthHandler(req, res) {
   }
 }
 
+
+let names=['Poppy', 'Bella', 'Molly', 'Alfie', 'Charlie', 'Daisy', 'Rosie', 'Teddy', 'Lola', 'Millie', 'Bella', 'Tilly', 'Lola', 'Coco', 'Luna', 'Molly', 'Rosie', 'Phoebe'];
+
+let gender=['Male', 'Female'];
+
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////// CATS  CONSTRUCTOR
 function Cats(data) {
-  this.type = 'cat';
-  this.name = data.breeds[0].id;
+  this.pet_type = 'cat';
+  this.pet_name = names[Math.floor((Math.random() * names.length) )];
+  this.gender = gender[Math.floor((Math.random() * gender.length) )];
   this.breed = data.breeds[0].name;
-  this.weight = data.breeds[0].weight.metric.substring(0, 2);
+  this.pet_weight = data.breeds[0].weight.metric.substring(0, 2);
   this.img = data.url;
   this.description = data.breeds[0].description;
   this.origin = data.breeds[0].origin;
@@ -82,10 +88,11 @@ function Cats(data) {
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ///// DOGS CONSTRUCTOR
 function Dogs(data) {
-  this.type = 'dog';
-  this.name = 'not named';
+  this.pet_type = 'dog';
+  this.pet_name = names[Math.floor((Math.random() * names.length) )];
+  this.gender = gender[Math.floor((Math.random() * gender.length) )];
   this.breed = data.breeds[0].name;
-  this.weight = data.breeds[0].weight.metric.substring(0, 2);
+  this.pet_weight = data.breeds[0].weight.metric.substring(0, 2);
   this.img = data.url;
   this.description = data.breeds[0].temperament;
   if (data.breeds[0].origin) { this.origin = data.breeds[0].origin; }
