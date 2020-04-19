@@ -1,12 +1,12 @@
-fieldset{
+#searchMain fieldset{
   border: antiquewhite solid;
 }
-form{
+#searchMain form{
   background-color: brown;
   border: chartreuse solid;
 }
 
-.feedback-input {
+#searchMain .feedback-input {
 	color:#3c3c3c;
 	background-color: #fbfbfb;
   border: 3px solid rgba(0,0,0,0);

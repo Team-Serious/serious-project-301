@@ -23,6 +23,19 @@ app.get('/', homeHandler);
 app.post('/search-result', searchResulthHandler);
 app.get('/about', aboutHandler);
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+app.get('/rehome',rehomeHandler);
+app.post('/user',userHandler);
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////
+function userHandler(req,res){
+  res.render('pages/user');
+}
+
+function rehomeHandler(req,res){
+  res.render('pages/rehome');
+}
+
 ////// function aboutHandler for ('/about')
 function aboutHandler(req, res) {
   res.render('pages/about');
@@ -50,7 +63,7 @@ function searchHandler(req, res) {
 //     console.log('from DB',data.rows);
 //     res.send(data.rows[0]);}
 //     else {
-//         const key= process.env.GEOCODE_API_KEY;   
+//         const key= process.env.GEOCODE_API_KEY;
 //         const url= `https://eu1.locationiq.com/v1/search.php?key=${key}&q=${theLocation}&format=json`;
 //         superagent.get(url)
 //         .then(data1 =>{
@@ -85,7 +98,7 @@ function searchResulthHandler(req, res) {
         console.log(data.rows);
         if (data.rows.length > 0) {
           console.log('from DB', data.rows);
-          res.render('pages/search-result', { data: data.rows })
+          res.render('pages/search-result', { data: data.rows });
         }
         else {
           // let cat;
@@ -123,7 +136,7 @@ function searchResulthHandler(req, res) {
         console.log(data.rows);
         if (data.rows.length > 0) {
           console.log('from DB', data.rows);
-          res.render('pages/search-result', { data: data.rows })
+          res.render('pages/search-result', { data: data.rows });
         } else {
           url = `https://api.thedogapi.com/v1/images/search?size=med&mime_types=jpg&format=json&has_breeds=true&order=asc&page=0&limit=15&api_key=${process.env.API_KEY}`;
           superagent.get(url)
@@ -193,4 +206,3 @@ client.connect()
     });
 
   });
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////

@@ -1,0 +1,54 @@
+#RehomeMain h2{
+  font-size: 26px;
+  font-family: fantasy;
+}
+
+#RehomeMain h3 {
+  font-size: 20px;
+  margin: 8px;
+}
+#RehomeMain > fieldset{
+  width: 80%;
+  text-align: center;
+  margin-top: 20px;
+
+}
+#RehomeMain form{
+  position: relative;
+  width: 85%;
+  text-align: center;
+  padding: 5%;
+  margin: 11px;
+  display: flex;
+  flex-direction: column;
+}
+#RehomeMain legend {
+  text-align: center;
+  font-size: xx-large;
+  text-transform: capitalize;
+  margin: 5px 0;
+  width: 50%;
+}
+
+#RehomeMain input{
+  padding: 12px;
+  margin: 3px 0;
+  width: 90%;
+}
+#RehomeMain input[type="radio"]{
+  padding: 12px;
+  margin: 3px 0;
+  width:5%
+}
+#RehomeMain textarea{
+  margin: 5px 0;
+  width: 90%;
+}
+#RehomeMain button{
+  width: 25%;
+  border-radius: 5px;
+  padding: 9px;
+}
+#RehomeMain label {
+  margin-right: 50px;
+}

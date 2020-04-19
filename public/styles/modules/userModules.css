@@ -1,0 +1,38 @@
+#userMain .divdiv{
+  display: flex;
+  align-items: center;
+  width: 80%;
+  margin-bottom: 35px;
+}
+
+#userMain img{
+  border-radius: 175px;
+}
+#userMain .divNames{
+margin-left: 35px;
+width: 100%;
+}
+
+#userMain h4{
+  font-size: 20px;
+  margin: 5px;
+  margin-left: 27px;
+  font-family: cursive;
+  padding: 6px;
+}
+
+#userMain .buttonsDiv{
+  justify-content: space-around;
+  margin: 15px;
+}
+
+
+#userMain .buttonsDiv form{
+  width: 30%;
+  margin: 11px;
+}
+
+#userMain .buttonsDiv button{
+  padding: 15px;
+  width: 100%;
+}

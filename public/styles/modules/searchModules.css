@@ -1,8 +1,8 @@
-fieldset{
+#searchMain fieldset{
   width: 80%;
   text-align: center;
 }
-form{
+#searchMain form{
   position: relative;
   width: 85%;
   height: 350px;
@@ -10,7 +10,7 @@ form{
   padding: 5%;
   margin: 11px;
 }
-legend {
+#searchMain legend {
   text-align: center;
   font-size: xx-large;
   text-transform: capitalize;
@@ -18,26 +18,26 @@ legend {
   width: 50%;
 }
 
-form>div{
+#searchMain form>div{
   display: flex;
   justify-content: center;
 }
 
-form>button{
+#searchMain form>button{
   position: relative;
   bottom: -80px;
   padding: 20px;
   border-radius: 12px;
   width: 50%;
 }
-#se{
+#searchMain #se{
   background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Vector_search_icon.svg/945px-Vector_search_icon.svg.png");
 	background-size: 30px 30px;
 	background-position: 11px 8px;
 	background-repeat: no-repeat;
 }
 
-.feedback-input {
+#searchMain .feedback-input {
 	font-family: Helvetica, Arial, sans-serif;
   font-weight:500;
 	font-size: 18px;
