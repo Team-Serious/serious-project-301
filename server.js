@@ -21,10 +21,10 @@ app.set('view engine', 'ejs');
 app.get('/search', searchHandler);
 app.get('/', homeHandler);
 app.post('/search-result', searchResulthHandler);
-app.get('/about',aboutHandler);
+app.get('/about', aboutHandler);
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////// function aboutHandler for ('/about')
-function aboutHandler(req,res){
+function aboutHandler(req, res) {
   res.render('pages/about');
 }
 
@@ -71,21 +71,22 @@ function searchHandler(req, res) {
 ///// function searchResulthandler for ('/search-result')
 function searchResulthHandler(req, res) {
 
-  
+
   let petObjects = [];
   let url;
   if (req.body.pet === 'cat') {
     console.log('cats');
-    let SQL ='SELECT * FROM search_result WHERE search_req=$1;';
-    let value=[req.body.breed];
+    let SQL = 'SELECT * FROM search_result WHERE search_req=$1;';
+    let value = [req.body.breed];
     console.log(SQL);
     client.query(SQL, value)
-    .then(data =>{
+      .then(data => {
         console.log('then');
         console.log(data.rows);
-        if (data.rows.length >0){
-        console.log('from DB',data.rows);
-        res.render('pages/search-result', { data:data.rows})}
+        if (data.rows.length > 0) {
+          console.log('from DB', data.rows);
+          res.render('pages/search-result', { data: data.rows })
+        }
         else {
           // let cat;
           console.log('else');
@@ -93,50 +94,73 @@ function searchResulthHandler(req, res) {
           superagent.get(url)
             .then(data => {
               data.body.map((element, index) => {
-               const cat = new Cats(element, req.body.breed,index);
+                const cat = new Cats(element, req.body.breed, index);
                 petObjects.push(cat);
                 let SQL1 = 'INSERT INTO search_result (pet_type,pet_name,gender,breed, pet_weight, img, description, origin, search_req) VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9);';
-              let safeValues= [cat.pet_type , cat.pet_name , cat.gender , cat.breed, cat.pet_weight, cat.img, cat.description, cat.origin, req.body.breed];
-             client.query(SQL1, safeValues)
-             .then( data =>{
-              console.log('added to DB',data.rows);
-             });
+                let safeValues = [cat.pet_type, cat.pet_name, cat.gender, cat.breed, cat.pet_weight, cat.img, cat.description, cat.origin, req.body.breed];
+                client.query(SQL1, safeValues)
+                  .then(data => {
+                    console.log('added to DB', data.rows);
+                  });
               });
               res.render('pages/search-result', { data: petObjects });
-              
+
             });
         }
-    })
-    .catch (() => {        res.send('error');    });
+      })
+      .catch(() => { res.send('error'); });
   }
 
-    
-  
+
+
   if (req.body.pet === 'dog') {
-    url = `https://api.thedogapi.com/v1/images/search?size=med&mime_types=jpg&format=json&has_breeds=true&order=asc&page=0&limit=15&api_key=${process.env.API_KEY}`;
-    superagent.get(url)
+    let SQL = 'SELECT * FROM search_result WHERE search_req=$1;';
+    let value = [req.body.breed];
+    console.log(SQL);
+    client.query(SQL, value)
       .then(data => {
-        data.body.map((element, index) => {
-          const dog = new Dogs(element,req.body.breed ,index);
-          if (dog.breed === req.body.breed) { petObjects.push(dog); }
-        });
-        res.render('pages/search-result', { data: petObjects });
-        // res.send(petObjects);
-      });
+        console.log('then');
+        console.log(data.rows);
+        if (data.rows.length > 0) {
+          console.log('from DB', data.rows);
+          res.render('pages/search-result', { data: data.rows })
+        } else {
+          url = `https://api.thedogapi.com/v1/images/search?size=med&mime_types=jpg&format=json&has_breeds=true&order=asc&page=0&limit=15&api_key=${process.env.API_KEY}`;
+          superagent.get(url)
+            .then(data => {
+              data.body.map((element, index) => {
+                const dog = new Dogs(element, req.body.breed, index);
+                if (dog.breed === req.body.breed) {
+                  petObjects.push(dog);
+                  let SQL1 = 'INSERT INTO search_result (pet_type,pet_name,gender,breed, pet_weight, img, description, origin, search_req) VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9);';
+                  let safeValues = [dog.pet_type, dog.pet_name, dog.gender, dog.breed, dog.pet_weight, dog.img, dog.description, dog.origin, req.body.breed];
+                  client.query(SQL1, safeValues)
+                    .then(data => {
+                      console.log('added to DB', data.rows);
+                    });
+                }
+              });
+              res.render('pages/search-result', { data: petObjects });
+            });
+        }
+      })
+      .catch(() => { res.send('error'); });
   }
 }
 
 
-let names=['Poppy', 'Bella', 'Molly', 'Alfie', 'Charlie', 'Daisy', 'Rosie', 'Teddy', 'Lola', 'Millie', 'Bella', 'Tilly', 'Lola', 'Coco', 'Luna', 'Molly', 'Rosie', 'Phoebe'];
 
-let gender=['Male', 'Female'];
+
+let names = ['Poppy', 'Bella', 'Molly', 'Alfie', 'Charlie', 'Daisy', 'Rosie', 'Teddy', 'Lola', 'Millie', 'Bella', 'Tilly', 'Lola', 'Coco', 'Luna', 'Molly', 'Rosie', 'Phoebe'];
+
+let gender = ['Male', 'Female'];
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////// CATS  CONSTRUCTOR
-function Cats(data , req) {
+function Cats(data, req) {
   this.pet_type = 'cat';
-  this.pet_name = names[Math.floor((Math.random() * names.length) )];
-  this.gender = gender[Math.floor((Math.random() * gender.length) )];
+  this.pet_name = names[Math.floor((Math.random() * names.length))];
+  this.gender = gender[Math.floor((Math.random() * gender.length))];
   this.breed = data.breeds[0].name;
   this.pet_weight = data.breeds[0].weight.metric.substring(0, 2);
   this.img = data.url;
@@ -149,8 +173,8 @@ function Cats(data , req) {
 ///// DOGS CONSTRUCTOR
 function Dogs(data, req) {
   this.pet_type = 'dog';
-  this.pet_name = names[Math.floor((Math.random() * names.length) )];
-  this.gender = gender[Math.floor((Math.random() * gender.length) )];
+  this.pet_name = names[Math.floor((Math.random() * names.length))];
+  this.gender = gender[Math.floor((Math.random() * gender.length))];
   this.breed = data.breeds[0].name;
   this.pet_weight = data.breeds[0].weight.metric.substring(0, 2);
   this.img = data.url;
@@ -163,10 +187,10 @@ function Dogs(data, req) {
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
 client.connect()
-.then (()=>{
-    app.listen(PORT, ()=>{
-        console.log('listening from port ', PORT);
+  .then(() => {
+    app.listen(PORT, () => {
+      console.log('listening from port ', PORT);
     });
 
-});
+  });
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
