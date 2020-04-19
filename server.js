@@ -23,19 +23,6 @@ app.get('/', homeHandler);
 app.post('/search-result', searchResulthHandler);
 app.get('/about', aboutHandler);
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-
-app.get('/rehome',rehomeHandler);
-app.get('/user',userHandler);
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////
-function userHandler(req,res){
-  res.render('pages/user');
-}
-
-function rehomeHandler(req,res){
-  res.render('pages/rehome');
-}
-
 ////// function aboutHandler for ('/about')
 function aboutHandler(req, res) {
   res.render('pages/about');
@@ -127,41 +114,18 @@ function searchResulthHandler(req, res) {
 
 
   if (req.body.pet === 'dog') {
-    let SQL = 'SELECT * FROM search_result WHERE search_req=$1;';
-    let value = [req.body.breed];
-    console.log(SQL);
-    client.query(SQL, value)
+    url = `https://api.thedogapi.com/v1/images/search?size=med&mime_types=jpg&format=json&has_breeds=true&order=asc&page=0&limit=15&api_key=${process.env.API_KEY}`;
+    superagent.get(url)
       .then(data => {
-        console.log('then');
-        console.log(data.rows);
-        if (data.rows.length > 0) {
-          console.log('from DB', data.rows);
-          res.render('pages/search-result', { data: data.rows });
-        } else {
-          url = `https://api.thedogapi.com/v1/images/search?size=med&mime_types=jpg&format=json&has_breeds=true&order=asc&page=0&limit=15&api_key=${process.env.API_KEY}`;
-          superagent.get(url)
-            .then(data => {
-              data.body.map((element, index) => {
-                const dog = new Dogs(element, req.body.breed, index);
-                if (dog.breed === req.body.breed) {
-                  petObjects.push(dog);
-                  let SQL1 = 'INSERT INTO search_result (pet_type,pet_name,gender,breed, pet_weight, img, description, origin, search_req) VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9);';
-                  let safeValues = [dog.pet_type, dog.pet_name, dog.gender, dog.breed, dog.pet_weight, dog.img, dog.description, dog.origin, req.body.breed];
-                  client.query(SQL1, safeValues)
-                    .then(data => {
-                      console.log('added to DB', data.rows);
-                    });
-                }
-              });
-              res.render('pages/search-result', { data: petObjects });
-            });
-        }
-      })
-      .catch(() => { res.send('error'); });
+        data.body.map((element, index) => {
+          const dog = new Dogs(element, req.body.breed, index);
+          if (dog.breed === req.body.breed) { petObjects.push(dog); }
+        });
+        res.render('pages/search-result', { data: petObjects });
+        // res.send(petObjects);
+      });
   }
 }
-
-
 
 
 let names = ['Poppy', 'Bella', 'Molly', 'Alfie', 'Charlie', 'Daisy', 'Rosie', 'Teddy', 'Lola', 'Millie', 'Bella', 'Tilly', 'Lola', 'Coco', 'Luna', 'Molly', 'Rosie', 'Phoebe'];
@@ -206,3 +170,4 @@ client.connect()
     });
 
   });
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////
