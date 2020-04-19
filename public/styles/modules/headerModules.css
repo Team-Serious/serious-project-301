@@ -31,3 +31,95 @@ header li{
   padding: 2px;
 }
 
+.dot{
+  width: 35px;
+  height: 35px;
+  border-radius: 22px;
+  background-color: red;
+  z-index: 999;
+}
+.cont{
+  width: 0;
+  height: 0;
+  position: absolute;
+  right: 40px;
+  top: 28px;
+  border-radius: 271px;
+  z-index: 9;
+  transition: 2s;
+}
+
+.showMenu{
+  width: 500px;
+  height: 500px;
+  right: -109px;
+  top: -47px;
+  background-color: aquamarine;
+  z-index: 9;
+}
+
+.dropdown-menu-hidden{
+  position: absolute;
+  bottom: 183px;
+  left: 186px;
+  text-align: center;
+  z-index: -999999;
+  opacity: 0;
+  animation: fadeIn ease 5s;
+  width: 0%;
+}
+
+.dropdown-menu{
+  /* position: absolute;
+  bottom: 183px;
+  left: 186px; */
+  /* text-align: center; */
+  z-index: 999999;
+  /* width: 20%; */
+  /* opacity: 1; */
+}
+
+
+@keyframes fadeIn{
+  0% {
+    opacity:0;
+  }
+  100% {
+    opacity:1;
+  }
+}
+
+@keyframes a {
+  0%{ opacity: 0;
+    width: 0%;}
+  20%{opacity: 0;
+    width: 0%;}
+  30%{ opacity: 0;
+    width: 0%;}
+  40%{opacity: 0;
+    width: 2%;}
+  50%{ opacity: 0;
+    width: 4%;}
+  60%{opacity: 0;
+    width: 6%;}
+  90%{opacity: 1;
+    width: 10%;}
+  100%{opacity: 1;
+    width: 20%;}
+}
+.pl{
+  position: absolute;
+  right: 79px;
+  top: 17%;
+  z-index: 99;
+}
+.pl2{
+  display: block;
+  color: #ff8100;
+  opacity: 0;
+  z-index: -99999;
+}
+.pl3{
+  animation: fadeIn ease 2s forwards;
+  
+}

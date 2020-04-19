@@ -1,9 +1,13 @@
 'use strict';
 $(document).ready(function () {
   // drop down menu
-  $('.drop').click(function () {
-    $('.dropdown-menu').toggleClass('hidden');
-    $('.arrow').toggleClass('up');
+  // $('.drop').click(function () {
+  //   $('.dropdown-menu').toggleClass('hidden');
+  //   $('.arrow').toggleClass('up');
+  // });
+  $('.dot').click(function () {
+    $('.cont').toggleClass('showMenu');
+    $('.pl2').toggleClass('pl3');
   });
 
   // about us
@@ -25,21 +29,20 @@ $(document).ready(function () {
   $('.bgblack').hide();
   $('.info-btn').on('click', function () {
     let divId = $(this).attr('id');
-    divId = '#div'+divId;
+    divId = '#div' + divId;
     $(divId).toggle();
     $('.bgblack').show();
   });
 
-  $('.bgblack').on('click', function(){
+  $('.bgblack').on('click', function () {
     $('.info-div').hide();
     $('.bgblack').hide();
   });
 
-  $('.closepop').on('click', function(){
-    let popId= $(this).attr('id');
-    popId= '#di'+ popId;
+  $('.closepop').on('click', function () {
+    let popId = $(this).attr('id');
+    popId = '#di' + popId;
     $(popId).toggle();
     $('.bgblack').hide();
-  })
- 
+  });
 });
