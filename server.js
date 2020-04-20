@@ -50,6 +50,7 @@ function aboutHandler(req, res) {
 }
 
 var y = 0;
+let fact = true;
 ///// function homehandler for ('/')
 function homeHandler(req, res) {
 
@@ -62,8 +63,28 @@ function homeHandler(req, res) {
     })
     .then(z => y = z);
   // .then(m => console.log('rrrr', r, y, m));
-  res.render('pages/home');
+  let url;
+  if (fact) {
+    console.log('catttts');
+    url = 'https://catfact.ninja/facts?limit=1&max_length=140';
+    superagent.get(url)
+      .then(element => {
+        let catFact = element.body.data[0].fact;
+        res.render('pages/home', { theFact: catFact });
+      });
+  }
+  if (!fact) {
+    console.log('doooogs');
+    url = 'https://dog-api.kinduff.com/api/facts';
+    superagent.get(url)
+      .then(element => {
+        let dogFact = element.body.facts[0];
+        res.render('pages/home', { theFact: dogFact });
+      });
+  }
+  fact = !fact;
 }
+
 ///// function deletePet for ('/delete')
 function deletePet(req, res) {
   let sql = 'DELETE FROM selected_pet WHERE id=$1;';
