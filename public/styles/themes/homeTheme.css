@@ -1,10 +1,12 @@
 
-.visionMishion{
-border: solid bisque;
-background-color: blanchedalmond;
+.visionMission{
+  border: solid #30165696;
+  background: #817a8c80;
 }
 
 .Cat button{
-  background: #b48fbd;
-  border:2px solid #000;
+  background: #c8bdd8;
+  border: 2px solid #301656;
+  color: #301656;
+  font-family: 'Yanone Kaffeesatz', sans-serif;
 }

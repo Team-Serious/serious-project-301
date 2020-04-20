@@ -1,4 +1,5 @@
 
+
 footer div{
   width: 100%;
 }
@@ -9,7 +10,7 @@ footer>p:nth-child(2){
 
 footer  span{
   font-weight: bolder;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Yanone Kaffeesatz', sans-serif;
 }
 
 .shortContact{
