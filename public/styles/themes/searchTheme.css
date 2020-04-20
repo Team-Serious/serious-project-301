@@ -1,13 +1,36 @@
 #searchMain fieldset{
-  border: antiquewhite solid;
+  border: #301656 solid;
 }
 #searchMain form{
-  background-color: brown;
-  border: chartreuse solid;
+  background: #817a8c80;
+  border: solid #30165696;
 }
 
 #searchMain .feedback-input {
 	color:#3c3c3c;
-	background-color: #fbfbfb;
-  border: 3px solid rgba(0,0,0,0);
+  background: #c8bdd8;
+  border: 3px solid #301656;
+}
+input:focus{
+  outline:0;
+  /* border: 3px solid #c8bdd8; */
+	color:#301656;
+
+}
+#searchMain button{
+  background: #301656;
+  border: #ffffff 2px solid;
+  color: #c8bdd8;
+  font-family: 'Yanone Kaffeesatz', sans-serif;
+}
+/* =============
+Radio buttons 
+================ */
+.cont-radio:hover  .newradio {
+  background-color:  #c8bdd8;
+  border: 4px solid #817a8c80;
+}
+.cont-radio input:checked ~ .newradio {
+  background-color:  #c8bdd8;
+  border: 4px solid #301656;
 }
