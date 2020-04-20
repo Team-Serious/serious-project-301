@@ -91,7 +91,7 @@ function updatePet(req, res) {
 ///// function searchhandler for ('/search')
 function searchHandler(req, res) {
   console.log(y.ip, 'ooooo');
-  let url = 'http://ip-api.com/json/176.28.232.122';
+  let url = 'http://ip-api.com/json/149.200.225.167';
   superagent.get(url)
     .then(data => console.log(data.body));
   res.render('pages/search');

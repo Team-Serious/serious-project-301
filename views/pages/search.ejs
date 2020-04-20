@@ -1,49 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <%- include('../layout/head')%>
     <title>Animal Adoption Application-Search</title>
-</head>
+  </head>
 
-<body>
-    <img id="background" src="../../images/seriousbg.png" alt="background">
+  <body>
+    <img id="background" src="../../images/seriousbg.png" alt="background" />
     <header>
-        <%- include('../layout/header')%>
-        <!-- will be added from layot -->
+      <%- include('../layout/header')%>
+      <!-- will be added from layot -->
     </header>
 
     <main id="searchMain">
-        <!-- form to search  by keyword(breed) -->
-        <fieldset>
-            <legend> search form</legend>
-            <form action="/search-result" method="post">
-                <input id="se" class="feedback-input" type="text" name="breed" placeholder="Enter breed name" required>
+      <!-- form to search  by keyword(breed) -->
+      <fieldset>
+        <legend>browse database</legend>
+        <form class="flexColomn" action="/search-result" method="post">
+          <span
+            >help us find homes for those pets in need. search for a cute pet
+            here..</span
+          >
+          <!-- <br> -->
+          <label for="se"> *insert pet breed:</label>
+          <input
+            id="se"
+            class="feedback-input"
+            type="text"
+            name="breed"
+            placeholder="Enter breed name"
+            required
+          />
+          <!-- <br> -->
+          <label for="choice">*pick pet type:</label>
+          <div id="choice" class="what">
+            <div class="what">
+            <label class="cont-radio flex" for="cat">
+              <input
+                class="radiobtn"
+                type="radio"
+                name="pet"
+                value="cat"
+                required
+              />
+              <span class="newradio"></span>
 
-                <br>
-                <div>
-                    <input type="radio" name="pet" value='cat' required>
-                    <label for="cat">Cat</label>
+              Cat</label
+            >
+            </div>
 
-                    <input type="radio" name="pet" value='dog' required>
-                    <label for="dog">Dog</label>
-
-                </div>
-
-                <br>
-
-                <button type="submit">Search</button>
-
-            </form>
-        </fieldset>
+            <div class="what">
+            <label class="cont-radio flex" for="dog">
+              <input
+                class="radiobtn"
+                type="radio"
+                name="pet"
+                value="dog"
+                required
+              />
+              <span class="newradio"></span>
+              Dog</label
+            >
+            </div> 
+          </div>
+          <!-- <br> -->
+          <div id="btndiv">
+            <button type="submit">Search</button>
+          </div>
+        </form>
+      </fieldset>
     </main>
     <footer>
-        <%- include('../layout/footer')%>
+      <%- include('../layout/footer')%>
 
-        <!-- will be added from layot -->
+      <!-- will be added from layot -->
     </footer>
     <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
     <script src="app.js"></script>
-</body>
-
+  </body>
 </html>
