@@ -110,10 +110,9 @@ app.post('/add', addToRehome);
 function addToRehome(req, res) {
   console.log(req.body);
   let { pet, name, gender, Breed, weight, imgLink, disc, origin } = req.body;
-  let sql = 'INSERT INTO search_result (pet_type,pet_name,gender,breed, pet_weight, img, description, origin,search_req) VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9);';
-  let safeValues = [pet, name, gender, Breed, weight, imgLink, disc, origin, Breed];
+  let sql = 'INSERT INTO search_result (pet_type,pet_name,gender,breed, pet_weight, img, description, origin,search_req, isFromApi) VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10);';
+  let safeValues = [pet, name, gender, Breed, weight, imgLink, disc, origin, Breed, 'F'];
   console.log(safeValues, 'xxxxxxxxxxxxxxx');
-
   client.query(sql, safeValues)
 
     .then(() => {
@@ -124,6 +123,9 @@ function addToRehome(req, res) {
 ///// function searchhandler for ('/search')
 function searchHandler(req, res) {
   console.log(y.ip, 'ooooo');
+  let url = 'http://ip-api.com/json/149.200.225.167';
+  superagent.get(url)
+    .then(data => console.log(data.body));
   res.render('pages/search');
 }
 let petObjects = [];
@@ -157,11 +159,22 @@ function searchResulthHandler(req, res) {
       .then(data => {
         console.log('then');
         console.log(data.rows);
-        if (data.rows.length > 0) {
+        let counter = data.rows.reduce((acc, e) => {
+          if (e.isfromapi === 'T') acc++;
+          return acc;
+        }, 0);
+        console.log('my counter', counter);
+        if (counter > 0) {
           console.log('from DB', data.rows);
           res.render('pages/search-result', { data: data.rows });
         }
         else {
+          petObjects = [];
+          data.rows.forEach(el => {
+            if (el.isfromapi === 'F') {
+              petObjects.push(el);
+            }
+          });
           // let cat;
           console.log('else');
           url = `https://api.thecatapi.com/v1/images/search?breed_ids=${req.body.breed}&include_breeds=true&limit=12`;
@@ -175,8 +188,8 @@ function searchResulthHandler(req, res) {
                 selectedNames.push(name);
                 const cat = new Cats(element, req.body.breed, name, index);
                 petObjects.push(cat);
-                let SQL1 = 'INSERT INTO search_result (pet_type,pet_name,gender,breed, pet_weight, img, description, origin, search_req) VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9);';
-                let safeValues = [cat.pet_type, cat.pet_name, cat.gender, cat.breed, cat.pet_weight, cat.img, cat.description, cat.origin, req.body.breed];
+                let SQL1 = 'INSERT INTO search_result (pet_type,pet_name,gender,breed, pet_weight, img, description, origin, search_req, isFromApi) VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10);';
+                let safeValues = [cat.pet_type, cat.pet_name, cat.gender, cat.breed, cat.pet_weight, cat.img, cat.description, cat.origin, req.body.breed, cat.isFromApi];
                 client.query(SQL1, safeValues)
                   .then(data => {
                     console.log('added to DB', data.rows);
@@ -200,10 +213,21 @@ function searchResulthHandler(req, res) {
       .then(data => {
         console.log('then');
         console.log(data.rows);
-        if (data.rows.length > 0) {
+        let counter = data.rows.reduce((acc, e) => {
+          if (e.isfromapi === 'T') acc++;
+          return acc;
+        }, 0);
+        console.log('hhhh', counter);
+        if (counter > 0) {
           console.log('from DB', data.rows);
           res.render('pages/search-result', { data: data.rows });
         } else {
+          petObjects = [];
+          data.rows.forEach(el => {
+            if (el.isfromapi === 'F') {
+              petObjects.push(el);
+            }
+          });
           url = `https://api.thedogapi.com/v1/images/search?size=med&mime_types=jpg&format=json&has_breeds=true&order=asc&page=0&limit=15&api_key=${process.env.API_KEY}`;
           superagent.get(url)
             .then(data => {
@@ -216,8 +240,8 @@ function searchResulthHandler(req, res) {
                 const dog = new Dogs(element, req.body.breed, name, index);
                 if (dog.breed === req.body.breed) {
                   petObjects.push(dog);
-                  let SQL1 = 'INSERT INTO search_result (pet_type,pet_name,gender,breed, pet_weight, img, description, origin, search_req) VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9);';
-                  let safeValues = [dog.pet_type, dog.pet_name, dog.gender, dog.breed, dog.pet_weight, dog.img, dog.description, dog.origin, req.body.breed];
+                  let SQL1 = 'INSERT INTO search_result (pet_type,pet_name,gender,breed, pet_weight, img, description, origin, search_req,isFromApi) VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10);';
+                  let safeValues = [dog.pet_type, dog.pet_name, dog.gender, dog.breed, dog.pet_weight, dog.img, dog.description, dog.origin, req.body.breed, dog.isFromApi];
                   client.query(SQL1, safeValues)
                     .then(data => {
                       console.log('added to DB', data.rows);
@@ -248,6 +272,7 @@ function Cats(data, req, name) {
   this.description = data.breeds[0].description;
   this.origin = data.breeds[0].origin;
   this.search_req = req;
+  this.isFromApi = 'T';
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -263,8 +288,16 @@ function Dogs(data, req, name) {
   if (data.breeds[0].origin) { this.origin = data.breeds[0].origin; }
   else { this.origin = 'Unkown'; }
   this.search_req = req;
-
+  this.isFromApi = 'T';
 }
+
+
+////////error
+app.get('*', (req, res) => {
+  res.render('pages/error');
+});
+
+
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
 client.connect()

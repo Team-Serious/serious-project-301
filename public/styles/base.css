@@ -29,13 +29,15 @@ main{
 
 input[type="radio" i] {
   background-color: initial;
-  cursor: default;
-  -webkit-appearance: radio;
-  box-sizing: border-box;
+  cursor: pointer;
+  /* -webkit-appearance: radio; */
+  /* box-sizing: border-box; */
   margin: 6px 0px 0px 8px;
   padding: initial;
-  border: initial;
-  width: 5%;
+  border: none;
+  width: 40px;
+  height: 40px;
+  z-index: 22222222222;
 }
 #background{
   width: 100%;
