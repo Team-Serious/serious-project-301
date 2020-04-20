@@ -63,8 +63,8 @@ header li{
   width: 0;
   height: 0;
   position: absolute;
-  right: 40px;
-  top: 28px;
+  right: 112px;
+  top: 69px;
   border-radius: 271px;
   z-index: 9;
   transition: ease 1s;

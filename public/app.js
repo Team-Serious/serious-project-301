@@ -1,14 +1,6 @@
 'use strict';
 $(document).ready(function () {
-  // drop down menu
-  // $('.drop').click(function () {
-  //   $('.dropdown-menu').toggleClass('hidden');
-  //   $('.arrow').toggleClass('up');
-  // });
-
-  // fetch('https://api.ipify.org/?format=json')
-  //   .then(result => result.json())
-  //   .then(x => console.log(x.ip));
+  // menu
   $('.dot').click(function () {
     $('.cont').toggleClass('showMenu');
     $('.pl2').toggleClass('pl3');
@@ -29,7 +21,7 @@ $(document).ready(function () {
     $('.Darah').toggleClass('animate');
   });
 
-  // search result
+  // search result page -- learn more div
   $('.info-div').hide();
   $('.bgblack').hide();
   $('.info-btn').on('click', function () {
@@ -38,16 +30,65 @@ $(document).ready(function () {
     $(divId).toggle();
     $('.bgblack').show();
   });
-
+  // search result page -- dark background
   $('.bgblack').on('click', function () {
     $('.info-div').hide();
     $('.bgblack').hide();
   });
-
+  // search result page -- close popup
   $('.closepop').on('click', function () {
     let popId = $(this).attr('id');
     popId = '#di' + popId;
     $(popId).toggle();
     $('.bgblack').hide();
   });
+
+
+  // search page -- recommendation 'search breed'
+  $('input[type="radio"]').on('click',recommended);
+  $('#se').on('keyup',recommended);
+
+  // user page -- lear more
+  $('.info-div').hide();
+  $('.bgblack').hide();
+  $('.info-btn').on('click', function () {
+    let divId = $(this).attr('id');
+    divId = '#div' + divId;
+    $(divId).toggle();
+    $('.bgblack').show();
+  });
 });
+
+
+
+
+
+function recommended(){
+  let catsBreed = ['abys', 'aege', 'abob', 'acur', 'asho', 'awir', 'amau', 'amis', 'bali', 'bamb'];
+  let dogsBreed = ['Akbash_Dog', 'Afghan_Hound', 'Airedale_Terrier', 'Alaskan_Husky', 'American_Bulldog', 'Akita'];
+
+  let petBreed = [];
+  let str = '';
+  if($('input[name="pet"]:checked').val()==='cat'){
+    catsBreed.forEach(e => {
+      petBreed.push(e);
+    });
+  }else if($('input[name="pet"]:checked').val()==='dog'){
+    dogsBreed.forEach(e => {
+      petBreed.push(e);
+    });
+  }else{
+    catsBreed = [...catsBreed,...dogsBreed];
+    catsBreed.forEach(e => {
+      petBreed.push(e);
+    });
+  }
+
+  str=petBreed.join(' ');
+  let q = $('#se').val();
+  let s =`\\b(${q})\\w+`;
+  let regx = new RegExp(s,'gi');
+  let char = str.match(regx) || ['no matches found'];
+  $('#petBreeds').text(char);
+}
+
