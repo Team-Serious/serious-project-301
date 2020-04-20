@@ -87,6 +87,21 @@ function updatePet(req, res) {
   client.query(sql, safeValues)
     .then(res.redirect(`/user`));
 }
+///// Insert the selected pet(rehome) to the DB
+app.post('/add' , addToRehome);
+function addToRehome(req,res){
+  console.log(req.body);
+  let {pet,name,gender,Breed,weight,imgLink,disc ,origin} = req.body;
+let sql = 'INSERT INTO search_result (pet_type,pet_name,gender,breed, pet_weight, img, description, origin,search_req) VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9);'; 
+let safeValues = [pet,name,gender,Breed,weight,imgLink,disc ,origin,Breed];
+console.log(safeValues,'xxxxxxxxxxxxxxx');
+
+client.query(sql,safeValues)
+
+.then(()=>{
+  res.redirect('/');
+})
+}
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ///// function searchhandler for ('/search')
 function searchHandler(req, res) {
