@@ -133,10 +133,13 @@ header li{
   position: absolute;
   right: 120px;
   top: 17%;
-  z-index: 99;
+  z-index: -999999;
   font-size: 2em;
   line-height: 2;
   color: #301656;
+}
+.p5{
+  z-index: 999999;
 }
 .pl2{
   display: block;
