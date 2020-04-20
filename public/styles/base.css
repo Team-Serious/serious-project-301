@@ -3,9 +3,9 @@
 /* modules.css: every file containe elements positioning for the elements of that page */
 /* themes.css: every file containe elements colors for the elements of that page */
 @import url("https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz&display=swap");
-html{
+/* html{
   width: 95%;
-}
+} */
 body{
   /* background-color: gray; */
   max-width: 100%;
@@ -15,6 +15,7 @@ body{
   font-family: 'Yanone Kaffeesatz', sans-serif;
   /* background-image: url('../images/seriousbg.png'); */
   /* background-repeat: no-repeat; */
+  /* overflow: hidden; */
 }
 main{
   width: 100%;
