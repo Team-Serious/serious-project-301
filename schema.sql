@@ -12,7 +12,8 @@ CREATE TABLE search_result (
     img VARCHAR(255),
     description TEXT,
     origin VARCHAR(255),
-    search_req VARCHAR(255)
+    search_req VARCHAR(255),
+    isFromApi VARCHAR(255)
 );
 
 CREATE TABLE selected_pet (
