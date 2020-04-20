@@ -103,7 +103,7 @@ app.post('/pet/:pet_name', (req, res) => {
   let unique = req.params.pet_name;
   petObjects.forEach(val => {
     if (unique === val.pet_name) {
-      let selectedPet = val;
+      // let selectedPet = val;
       let SQL = 'INSERT INTO selected_pet (pet_type,pet_name,gender,breed, pet_weight, img, description, origin, search_req) VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9);';
       let safeValues = [val.pet_type, val.pet_name, val.gender, val.breed, val.pet_weight, val.img, val.description, val.origin, val.search_req];
       client.query(SQL, safeValues)

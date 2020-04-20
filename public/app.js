@@ -12,6 +12,7 @@ $(document).ready(function () {
   $('.dot').click(function () {
     $('.cont').toggleClass('showMenu');
     $('.pl2').toggleClass('pl3');
+    $('.pl').toggleClass('p5');
   });
 
   // about us
