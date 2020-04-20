@@ -26,13 +26,14 @@ app.get('/search', searchHandler);
 app.get('/', homeHandler);
 app.post('/search-result', searchResulthHandler);
 app.get('/about', aboutHandler);
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-
 app.get('/rehome',rehomeHandler);
 app.get('/user',userHandler);
+app.delete('/delete/:id', deletePet );
+app.put('/update/:id', updatePet );
+
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
-function userHandler(req,res){     /// this to render the user seletion   (Hussien , complete from here).
+ /// this to render the user seletion   
+function userHandler(req,res){    
   let SQL = 'SELECT * FROM selected_pet;';
   client.query(SQL)
       .then(data => {
@@ -54,6 +55,26 @@ function aboutHandler(req, res) {
 function homeHandler(req, res) {
   res.render('pages/home');
 }
+///// function deletePet for ('/delete')
+function deletePet(req,res){
+let sql = 'DELETE FROM selected_pet WHERE id=$1;';
+let safeValue = [req.params.id]
+console.log(safeValue);
+
+client.query(sql,safeValue)
+.then(res.redirect('/'))
+};
+///// function updatePet for ('/update')
+function updatePet (req,res){
+  let {pet_name,breed,pet_weight,description,origin} = req.body;
+  let id = req.params.id;
+  let sql = 'UPDATE selected_pet SET pet_name=$1,breed=$2,pet_weight=$3,description=$4,origin=$5 WHERE id=$6; ';
+  let safeValues = [pet_name,breed,pet_weight,description,origin,id];
+  console.log('zzzzzzz00',safeValues);
+  
+  client.query(sql,safeValues)
+  .then(res.redirect(`/user`))
+};
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ///// function searchhandler for ('/search')
 function searchHandler(req, res) {
@@ -95,6 +116,7 @@ function searchResulthHandler(req, res) {
           res.render('pages/search-result', { data: data.rows });
         }
         else {
+          petObjects =[];
           // let cat;
           console.log('else');
           url = `https://api.thecatapi.com/v1/images/search?breed_ids=${req.body.breed}&include_breeds=true&limit=12`;
@@ -137,6 +159,7 @@ function searchResulthHandler(req, res) {
           console.log('from DB', data.rows);
           res.render('pages/search-result', { data: data.rows });
         } else {
+          petObjects =[]
           url = `https://api.thedogapi.com/v1/images/search?size=med&mime_types=jpg&format=json&has_breeds=true&order=asc&page=0&limit=15&api_key=${process.env.API_KEY}`;
           superagent.get(url)
             .then(data => {
