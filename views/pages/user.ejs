@@ -12,26 +12,70 @@
   </header>
 
   <main id="userMain" class="flexColomn">
-    
+
+    <!-- <% pets.forEach((element,index) =>{ %> -->
     <div class="divdiv">
-      <img src="https://via.placeholder.com/300" alt="">
+      <img style="width: 150px;" src="<%=element.img%>" alt="">
       <div class="divNames">
-        <h4>Nameeee</h4>
-        <h4>breeeed</h4>
+        <h4><%=element.pet_type%> name is: <%=element.pet_name%></h4>
+        <h4><%=element.pet_type%> breed is: <%=element.breed%></h4>
         <div class="flex buttonsDiv">
           <form action="">
-            <button>Learn More</button>
+            <button name="userInfo">Learn More About <%=element.pet_name%></button>
           </form>
-          <form action="" method="post">
+          <div id="div<%=index%>" class="info-div">
+            <div id="popTitle<%=index%>" class="pop-div">
+              <h2><%=element.pet_name%></h2>
+              <button class="closepop" id="v<%=index%>">&times;</button>
+            </div>
+            <div class="">
+              <h4>Gender:<%=element.gender%> </h4>
+              <h4><%=element.pet_type%> minimum weight is:<%=element.pet_weight%> kg</h4>
+              <h3>Little description:</h3>
+              <p><%=element.description%></p>
+              <h4><%=element.pet_type%> origin is from :<%=element.origin%></h4>
+            </div>
+          </div>
+          <form action="">
+
             <button>Update</button>
           </form>
-          <form action="" method="post">
-            <button>Delete</button>
+          <form action="/delete/<%=element.id%>?_method=delete" method="post">
+            <% console.log('delete',element.id) %>
+            <button> Delete</button>
           </form>
+
         </div>
       </div>
     </div>
+    
+    <form action="/update/<%=element.id%>?_method=put" method="post">
+      
+      <% console.log('update',element.id) %>
+      <label for="pet_name"> Pet name
 
+        <input id="pet_name" name="pet_name" value="<%=element.pet_name%>">
+      </label>
+      <label id="breed"> The breed is 
+
+        <input name="breed" value="<%=element.breed%>">
+      </label>
+      <label id="">  Pet weight in kg
+
+        <input name="pet_weight" value="<%=element.pet_weight%> kg">
+      </label>
+      <label >  Little description:
+
+        <input name="description" value="<%=element.description%>">
+      </label>
+      <label > pet origin:
+
+        <input name="origin" value="<%=element.origin%>">
+      </label>
+
+      <button type="submit">Update</button>
+    </form>
+    <!-- <%});%> -->
   </main>
 
   <footer>
@@ -39,7 +83,7 @@
   </footer>
 
   <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
-  <script src="app.js"></script>
+  <!-- <script src="app.js"></script> -->
 
 </body>
 
