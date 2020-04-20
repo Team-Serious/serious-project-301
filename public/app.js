@@ -5,6 +5,10 @@ $(document).ready(function () {
   //   $('.dropdown-menu').toggleClass('hidden');
   //   $('.arrow').toggleClass('up');
   // });
+
+  // fetch('https://api.ipify.org/?format=json')
+  //   .then(result => result.json())
+  //   .then(x => console.log(x.ip));
   $('.dot').click(function () {
     $('.cont').toggleClass('showMenu');
     $('.pl2').toggleClass('pl3');
