@@ -31,10 +31,8 @@ app.get('/rehome', rehomeHandler);
 app.get('/user', userHandler);
 app.delete('/delete/:id', deletePet);
 app.put('/update/:id', updatePet);
-
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
-/// this to render the user seletion
-function userHandler(req, res) {
+function userHandler(req, res) { /// this to render the user seletion   (Hussien , complete from here).
   let SQL = 'SELECT * FROM selected_pet;';
   client.query(SQL)
     .then(data => {
@@ -52,39 +50,39 @@ function aboutHandler(req, res) {
 }
 
 var y = 0;
-let fact=true;
+let fact = true;
 ///// function homehandler for ('/')
 function homeHandler(req, res) {
-    
+
 
   fetch('https://api.ipify.org/?format=json')
     .then(result => result.json())
     .then(x => {
-      // console.log(x);
+      console.log(x);
       return x;
     })
     .then(z => y = z);
   // .then(m => console.log('rrrr', r, y, m));
-    let url;
-    if (fact){
-      console.log('catttts');
-      url='https://catfact.ninja/facts?limit=1&max_length=140';
-      superagent.get(url)
-      .then(element =>{
-          let catFact= element.body.data[0].fact;
-          res.render('pages/home', {theFact: catFact});
-          });
-    }    
-    if (!fact){
-      console.log('doooogs')
-      url='https://dog-api.kinduff.com/api/facts';
-      superagent.get(url)
-      .then(element =>{
-          let dogFact= element.body.facts[0];
-          res.render('pages/home', {theFact: dogFact});
-          });
-    }
-    fact=!fact;
+  let url;
+  if (fact) {
+    console.log('catttts');
+    url = 'https://catfact.ninja/facts?limit=1&max_length=140';
+    superagent.get(url)
+      .then(element => {
+        let catFact = element.body.data[0].fact;
+        res.render('pages/home', { theFact: catFact });
+      });
+  }
+  if (!fact) {
+    console.log('doooogs');
+    url = 'https://dog-api.kinduff.com/api/facts';
+    superagent.get(url)
+      .then(element => {
+        let dogFact = element.body.facts[0];
+        res.render('pages/home', { theFact: dogFact });
+      });
+  }
+  fact = !fact;
 }
 
 ///// function deletePet for ('/delete')
@@ -108,19 +106,18 @@ function updatePet(req, res) {
     .then(res.redirect(`/user`));
 }
 ///// Insert the selected pet(rehome) to the DB
-app.post('/add' , addToRehome);
-function addToRehome(req,res){
+app.post('/add', addToRehome);
+function addToRehome(req, res) {
   console.log(req.body);
-  let {pet,name,gender,Breed,weight,imgLink,disc ,origin} = req.body;
-let sql = 'INSERT INTO search_result (pet_type,pet_name,gender,breed, pet_weight, img, description, origin,search_req, isFromApi) VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10);'; 
-let safeValues = [pet,name,gender,Breed,weight,imgLink,disc ,origin,Breed,'F'];
-console.log(safeValues,'xxxxxxxxxxxxxxx');
+  let { pet, name, gender, Breed, weight, imgLink, disc, origin } = req.body;
+  let sql = 'INSERT INTO search_result (pet_type,pet_name,gender,breed, pet_weight, img, description, origin,search_req, isFromApi) VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10);';
+  let safeValues = [pet, name, gender, Breed, weight, imgLink, disc, origin, Breed, 'F'];
+  console.log(safeValues, 'xxxxxxxxxxxxxxx');
+  client.query(sql, safeValues)
 
-client.query(sql,safeValues)
-
-.then(()=>{
-  res.redirect('/');
-})
+    .then(() => {
+      res.redirect('/');
+    });
 }
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ///// function searchhandler for ('/search')
@@ -162,19 +159,19 @@ function searchResulthHandler(req, res) {
       .then(data => {
         console.log('then');
         console.log(data.rows);
-        let counter = data.rows.reduce((acc,e) => {
-          if(e.isfromapi == 'T') acc++;
+        let counter = data.rows.reduce((acc, e) => {
+          if (e.isfromapi === 'T') acc++;
           return acc;
-        },0);
-        console.log('my counter',counter);
+        }, 0);
+        console.log('my counter', counter);
         if (counter > 0) {
           console.log('from DB', data.rows);
           res.render('pages/search-result', { data: data.rows });
         }
         else {
           petObjects = [];
-          data.rows.forEach(el=>{
-            if (el.isfromapi == 'F'){
+          data.rows.forEach(el => {
+            if (el.isfromapi === 'F') {
               petObjects.push(el);
             }
           });
@@ -216,18 +213,18 @@ function searchResulthHandler(req, res) {
       .then(data => {
         console.log('then');
         console.log(data.rows);
-        let counter = data.rows.reduce((acc,e) => {
-          if(e.isfromapi == 'T') acc++;
+        let counter = data.rows.reduce((acc, e) => {
+          if (e.isfromapi === 'T') acc++;
           return acc;
-        },0);
+        }, 0);
         console.log('hhhh', counter);
         if (counter > 0) {
           console.log('from DB', data.rows);
           res.render('pages/search-result', { data: data.rows });
         } else {
           petObjects = [];
-          data.rows.forEach(el=>{
-            if (el.isfromapi == 'F'){
+          data.rows.forEach(el => {
+            if (el.isfromapi === 'F') {
               petObjects.push(el);
             }
           });
@@ -291,14 +288,14 @@ function Dogs(data, req, name) {
   if (data.breeds[0].origin) { this.origin = data.breeds[0].origin; }
   else { this.origin = 'Unkown'; }
   this.search_req = req;
-  this.isFromApi='T';
+  this.isFromApi = 'T';
 }
 
 
 ////////error
-app.get('*',(req,res)=>{
+app.get('*', (req, res) => {
   res.render('pages/error');
-})
+});
 
 
 

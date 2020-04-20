@@ -43,5 +43,29 @@ font-size: large;
 }
 
 .animate{
-transform: rotate(180deg);
+/* transform: rotate(180deg); */
+animation: dance 10s ease-in-out infinite;
+}
+
+@keyframes dance{
+  0%{transform: rotate(5deg);}
+  10%{transform: rotate(10deg);}
+  15%{transform: rotate(15deg);}
+  20%{transform: rotate(20deg);}
+  25%{transform: rotate(25deg);}
+  30%{transform: rotate(20deg);}
+  35%{transform: rotate(15deg);}
+  40%{transform: rotate(10deg);}
+  45%{transform: rotate(5deg);}
+  50%{transform: rotate(0deg);}
+  60%{transform: rotate(-5deg);}
+  65%{transform: rotate(-10deg);}
+  70%{transform: rotate(-15deg);}
+  75%{transform: rotate(-20deg);}
+  80%{transform: rotate(-25deg);}
+  85%{transform: rotate(-20deg);}
+  90%{transform: rotate(-15deg);}
+  95%{transform: rotate(-10deg);}
+  98%{transform: rotate(-5deg);}
+  100%{transform: rotate(0deg);}
 }
