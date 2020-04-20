@@ -29,6 +29,8 @@ app.post('/search-result', searchResulthHandler);
 app.get('/about', aboutHandler);
 app.get('/rehome', rehomeHandler);
 app.get('/user', userHandler);
+app.delete('/delete/:id', deletePet);
+app.put('/update/:id', updatePet);
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
 function userHandler(req, res) { /// this to render the user seletion   (Hussien , complete from here).
   let SQL = 'SELECT * FROM selected_pet;';
@@ -61,6 +63,41 @@ function homeHandler(req, res) {
     .then(z => y = z);
   // .then(m => console.log('rrrr', r, y, m));
   res.render('pages/home');
+}
+///// function deletePet for ('/delete')
+function deletePet(req, res) {
+  let sql = 'DELETE FROM selected_pet WHERE id=$1;';
+  let safeValue = [req.params.id];
+  // console.log(safeValue);
+
+  client.query(sql, safeValue)
+    .then(res.redirect('/'));
+}
+///// function updatePet for ('/update')
+function updatePet(req, res) {
+  let { pet_name, breed, pet_weight, description, origin } = req.body;
+  let id = req.params.id;
+  let sql = 'UPDATE selected_pet SET pet_name=$1,breed=$2,pet_weight=$3,description=$4,origin=$5 WHERE id=$6; ';
+  let safeValues = [pet_name, breed, pet_weight, description, origin, id];
+  // console.log('zzzzzzz00', safeValues);
+
+  client.query(sql, safeValues)
+    .then(res.redirect(`/user`));
+}
+///// Insert the selected pet(rehome) to the DB
+app.post('/add', addToRehome);
+function addToRehome(req, res) {
+  console.log(req.body);
+  let { pet, name, gender, Breed, weight, imgLink, disc, origin } = req.body;
+  let sql = 'INSERT INTO search_result (pet_type,pet_name,gender,breed, pet_weight, img, description, origin,search_req) VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9);';
+  let safeValues = [pet, name, gender, Breed, weight, imgLink, disc, origin, Breed];
+  console.log(safeValues, 'xxxxxxxxxxxxxxx');
+
+  client.query(sql, safeValues)
+
+    .then(() => {
+      res.redirect('/');
+    });
 }
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ///// function searchhandler for ('/search')
