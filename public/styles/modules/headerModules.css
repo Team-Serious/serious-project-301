@@ -158,7 +158,7 @@ header li{
   width: 5%;
   /* opacity: 0.9; */
 }
-#menudiv{
+.menudiv{
   width: 500px;
   height: 500px;
   position: absolute;
@@ -167,4 +167,11 @@ header li{
   display: flex;
   flex-direction: row-reverse;
   overflow: hidden;
+  /* transition: ease-in 2s; */
+}
+
+.menudiv2{
+  width: 500px;
+  height: 325px;
+  transition: ease 1s;
 }

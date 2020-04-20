@@ -3,6 +3,7 @@ $(document).ready(function () {
   // menu
   $('.dot').click(function () {
     $('.cont').toggleClass('showMenu');
+    $('.menudiv').toggleClass('menudiv2');
     $('.pl2').toggleClass('pl3');
     $('.pl').toggleClass('p5');
   });
@@ -48,15 +49,23 @@ $(document).ready(function () {
   $('input[type="radio"]').on('click',recommended);
   $('#se').on('keyup',recommended);
 
-  // user page -- lear more
-  $('.info-div').hide();
-  $('.bgblack').hide();
-  $('.info-btn').on('click', function () {
-    let divId = $(this).attr('id');
-    divId = '#div' + divId;
-    $(divId).toggle();
-    $('.bgblack').show();
-  });
+
+  // user page -- update button
+  // $('.updateUser').on('click',function(){
+  //   let userPetId = $('.updateUser').attr('id');
+  //   console.log(userPetId),'pppppppppppppppppp';
+  //   $(`form${userPetId}`).toggle();
+  // });
+
+  // user page -- learn more
+  // $('.info-div').hide();
+  // $('.bgblack').hide();
+  // $('.info-btn').on('click', function () {
+  //   let divId = $(this).attr('id');
+  //   divId = '#div' + divId;
+  //   $(divId).toggle();
+  //   $('.bgblack').show();
+  // });
 });
 
 

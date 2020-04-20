@@ -13,7 +13,7 @@
 
   <main id="userMain" class="flexColomn">
 
-    <!-- <% pets.forEach((element,index) =>{ %> -->
+    <% pets.forEach((element,index) =>{ %>
     <div class="divdiv">
       <img style="width: 150px;" src="<%=element.img%>" alt="">
       <div class="divNames">
@@ -28,7 +28,7 @@
               <h2><%=element.pet_name%></h2>
               <button class="closepop" id="v<%=index%>">&times;</button>
             </div>
-            <div class="">
+            <div class="hidden">
               <h4>Gender:<%=element.gender%> </h4>
               <h4><%=element.pet_type%> minimum weight is:<%=element.pet_weight%> kg</h4>
               <h3>Little description:</h3>
@@ -36,12 +36,10 @@
               <h4><%=element.pet_type%> origin is from :<%=element.origin%></h4>
             </div>
           </div>
-          <form action="">
-
-            <button>Update</button>
-          </form>
+          <!-- <form> -->
+            <button id="<%=element.id%>" class = "updateUser">Update</button>
+          <!-- </form> -->
           <form action="/delete/<%=element.id%>?_method=delete" method="post">
-            <% console.log('delete',element.id) %>
             <button> Delete</button>
           </form>
 
@@ -49,9 +47,7 @@
       </div>
     </div>
     
-    <form action="/update/<%=element.id%>?_method=put" method="post">
-      
-      <% console.log('update',element.id) %>
+    <form id="form<%=element.id%>" class="updateFormUser" action="/update/<%=element.id%>?_method=put" method="post">
       <label for="pet_name"> Pet name
 
         <input id="pet_name" name="pet_name" value="<%=element.pet_name%>">
@@ -75,7 +71,7 @@
 
       <button type="submit">Update</button>
     </form>
-    <!-- <%});%> -->
+    <%});%>
   </main>
 
   <footer>
