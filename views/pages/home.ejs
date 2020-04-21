@@ -1,149 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
-
   <head>
     <%- include('../layout/head')%>
     <title>Animal Adoption Application-AAA</title>
-    <style>
-      /* #slider {
-      width: 50%;
-      height: 50%;
-      padding-top: 0;
-      margin-left: 50px;
-      margin-right: 50px;
-      margin-bottom: 30px;
-      overflow: hidden;
-      -webkit-animation: glowlogo 2s ease-in-out infinite alternate;
-      -moz-animation: glowlogo 2s ease-in-out infinite alternate;
-      animation: glowlogo 2s ease-in-out infinite alternate;
-  } */
-  /* #slider figure {
-      position: relative;
-      width: 500%;
-      height: 500px;
-      margin: 2%;
-      padding-right: 100px;
-      left: 0px;
-      animation: 17s slider infinite;
-  }
-  
-  #slider figure img {
-      width: 20%;
-      height: 100%;
-      
-      float: left;
-  } */
-  
-  /* @keyframes slider {
-      0% {
-          left: 0;
-      }
-      20% {
-          left: 0;
-      }
-      25% {
-          left: -100%;
-      }
-      45% {
-          left: -100%;
-      }
-      50% {
-          left: -200%;
-      }
-      70% {
-          left: -200%;
-      }
-      75% {
-          left: -300%;
-      }
-      90% {
-          left: -300%;
-      }
-      100% {
-          left: -400%;
-      }
-  } */
-  
-    </style>
   </head>
-  
+
   <body>
     <img id="background" src="../../images/seriousbg.png" alt="background">
     <header>
       <%- include('../layout/header')%>
     </header>
-  
-  
+
     <main>
       <div id="thefact">
-      <h4>Fun Fact of the day</h4>
-      <p>
-         <%=theFact%>
-      </p>
-    </div>
-      <section class="flex">
+        <h4>Fun Fact of the day</h4>
+        <p>
+          <%=theFact%>
+        </p>
+      </div>
+      <section class="withbg flex">
+        <!-- <img src="../../images/seriousbg.png" alt="background" /> -->
         <div id="intro">
-          <h3> About AAA:</h3>
-          <br>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto, quae maxime reiciendis perferendis
-            fugiat iure aperiam magni cupiditate consequuntur doloribus sit earum enim quos ipsa corrupti ad?
-            Exercitationem ducimus quibusdam aliquid non amet ratione vel possimus, quia quae inventore! Suscipit,
-            aliquam esse eligendi ipsa earum quo fugiat inventore facere blanditiis provident veritatis, voluptatem
-            assumenda qui!
+          <h3>About AAA:</h3>
+          <br />
+          <p>
+            The ANIMAL ADOPTION APPLICATION (AAA) was founded in 2020 when 'TeamSerious'
+            decided to formalize their efforts to save homeless pets in their
+            community. We are very proud that every pet adopted through AAA has
+            been inoculated prior to being placed in the hands of the adoptive
+            family. Behind every pet rescue mission is someone like you, capable
+            of making humanitarian work possible.
           </p>
-          <br>
-          <!-- <button> Sign In</button>
-          <button> Sign Up</button> -->
-  
-          <br>
-          <br>
-          <br>
+          <br />
+          <br />
+          <br />
+          <br />
           <div class="Cat">
-            <!-- src="https://static.wixstatic.com/media/3271a8_75422b1451fc4ca5899c6cdd77e1b31c~mv2.png/v1/fill/w_284,h_381,al_c/3271a8_75422b1451fc4ca5899c6cdd77e1b31c~mv2.png"> -->
-            <!-- src="https://clipartart.com/images/brown-cat-clipart-10.png"> -->
-           
             <img
-              src="https://cdn159.picsart.com/228761899080211.png?type=webp&to=min&r=640">
+              src="https://cdn159.picsart.com/228761899080211.png?type=webp&to=min&r=640"
+            />
             <a href="/search"> <button>Search</button></a>
           </div>
         </div>
         <div id="slider">
           <figure>
-            <img src="../../images/2.jpeg" class="sliderimage" alt="">
-            <img src="../../images/cat2.jpg" class="sliderimage" alt="">
-            <img src="../../images/4.jpg" class="sliderimage" alt="">
-            <img src="../../images/cat3.jpg" class="sliderimage" alt="">
-            <img src="../../images/7.webp" class="sliderimage" alt="">
-        </figure>      
-      </div>
-
-    </section>
-
-    <section class="visionMission flex textCenter">
-      <div id="vtitle">
-        <h4>Our Vision</h4>
-        <div id="vtext">
-          <p> A world free of homeless, neglected or abused pets.  </p> 
+            <img src="../../images/2.jpeg" class="sliderimage" alt="" />
+            <img src="../../images/cat2.jpg" class="sliderimage" alt="" />
+            <img src="../../images/4.jpg" class="sliderimage" alt="" />
+            <img src="../../images/cat3.jpg" class="sliderimage" alt="" />
+            <img src="../../images/1.jpg" class="sliderimage" alt="" />
+          </figure>
         </div>
-      </div>
-      <div id="mtitle">
-        <h4>Mission</h4>
-        <div id="mtext">
-        <p> AAA helps homeless pets find their way to loving homes through rescue and adoption.
-        </p>
-      </div>
-      </div>
+      </section>
 
-    </section>
-    
-  </main>
+      <section class="visionMission flex textCenter">
+        <div id="vtitle">
+          <h4>Our Vision</h4>
+          <div id="vtext">
+            <p>AAA aims for A world free of homeless, neglected or abused pets. we thrive to achieve the healthiest meeting of the most welcoming homes with the pets in need for ones. </p>
+          </div>
+        </div>
+        <div id="mtitle">
+          <h4>Our Mission</h4>
+          <div id="mtext">
+            <p>
+              AAA helps homeless pets find their way to loving homes through
+              rescue and adoption. we provide the user with all the information they need to know in order for them to be able to adopt the pet, take care of it, and make it feel welcomed in their home.
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
 
-  <footer>
-    <%- include('../layout/footer')%>
-  </footer>
+    <footer>
+      <%- include('../layout/footer')%>
+    </footer>
 
-  <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
-  <script src="app.js"></script>
-</body>
-
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    <script src="app.js"></script>
+  </body>
 </html>
