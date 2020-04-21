@@ -2,19 +2,23 @@
   justify-content: space-evenly;
   flex-wrap: wrap;
   flex-direction: row;
+  text-transform: uppercase;
 }
 
 #searchResultMain> .shortDisc{
-  border: chartreuse solid;
+  /* border: #301656 solid; */
+  border-radius: 30px;
   /* display: flex; */
   /* justify-content: center; */
   /* flex-direction: column; */
-  width: 23%;
+  width: 22%;
   height: 390px;
   text-align: center;
   /* align-self: end; */
   margin: 10px 0;
   position: relative;
+  background: #5e4c7da8;
+  box-shadow: 9px 7px 15px;
 }
 #searchResultMain> .shortDisc >img{
   border-radius: 93px;
@@ -22,18 +26,79 @@
   /* width: 50%; */
   height: 40%;
 }
+/* #searchResultMain> .shortDisc >img:hover{
+} */
+.imgflip{
+  animation: flip ease 2s;
+}
+@-webkit-keyframes flip {
+  from {
+    -webkit-transform: perspective(400px) scale3d(1, 1, 1) translate3d(0, 0, 0)
+      rotate3d(0, 1, 0, -360deg);
+    transform: perspective(400px) scale3d(1, 1, 1) translate3d(0, 0, 0) rotate3d(0, 1, 0, -360deg);
+    -webkit-animation-timing-function: ease-out;
+    animation-timing-function: ease-out;
+  }
+
+  40% {
+    -webkit-transform: perspective(400px) scale3d(1, 1, 1) translate3d(0, 0, 150px)
+      rotate3d(0, 1, 0, -190deg);
+    transform: perspective(400px) scale3d(1, 1, 1) translate3d(0, 0, 150px)
+      rotate3d(0, 1, 0, -190deg);
+    -webkit-animation-timing-function: ease-out;
+    animation-timing-function: ease-out;
+  }
+
+  50% {
+    -webkit-transform: perspective(400px) scale3d(1, 1, 1) translate3d(0, 0, 150px)
+      rotate3d(0, 1, 0, -170deg);
+    transform: perspective(400px) scale3d(1, 1, 1) translate3d(0, 0, 150px)
+      rotate3d(0, 1, 0, -170deg);
+    -webkit-animation-timing-function: ease-in;
+    animation-timing-function: ease-in;
+  }
+
+  80% {
+    -webkit-transform: perspective(400px) scale3d(0.95, 0.95, 0.95) translate3d(0, 0, 0)
+      rotate3d(0, 1, 0, 0deg);
+    transform: perspective(400px) scale3d(0.95, 0.95, 0.95) translate3d(0, 0, 0)
+      rotate3d(0, 1, 0, 0deg);
+    -webkit-animation-timing-function: ease-in;
+    animation-timing-function: ease-in;
+  }
+
+  to {
+    -webkit-transform: perspective(400px) scale3d(1, 1, 1) translate3d(0, 0, 0)
+      rotate3d(0, 1, 0, 0deg);
+    transform: perspective(400px) scale3d(1, 1, 1) translate3d(0, 0, 0) rotate3d(0, 1, 0, 0deg);
+    -webkit-animation-timing-function: ease-in;
+    animation-timing-function: ease-in;
+  }
+}
+
 #searchResultMain> .shortDisc >h4{
   font-size: 23px;
-  margin: 25px auto;
-  border: solid;
-  width: 90%;
+  margin: 3% auto;
+  border-bottom: #301656 solid;
+  width: 50%;
   padding: 3px;
 }
 
 .info-btn{
-  padding: 9px;
-  border-radius: 8px;
+  padding: 10px;
+  border-radius: 20px;
   cursor: pointer;
+  text-transform: uppercase;
+
+}
+
+.btns{
+  padding: 10px;
+  border-radius: 20px;
+  cursor: pointer;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+
 }
 .info-div{
   /* position: absolute; */
