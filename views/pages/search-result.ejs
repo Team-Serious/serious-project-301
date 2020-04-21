@@ -22,20 +22,20 @@
                 <button type="submit" class="btns">Adopt <%=element.pet_name%></button>
             </form>
             <button id="<%=index%>" class="info-btn" name="info">know <%=element.pet_name%> more</button>
-            <div id="div<%=index%>" class="info-div">
-                <div id="popTitle<%=index%>" class="pop-div">  
-                    <h2><%=element.pet_name%></h2>
-                    <button class="closepop" id="v<%=index%>">&times;</button>
-                </div>
-                <div class="pop-desc">
-                    <h4>Gender:<%=element.gender%> </h4>
-                    <h4><%=element.pet_type%> minimum weight is:<%=element.pet_weight%> kg</h4>
-                    <h3>Little description:</h3>
-                    <p><%=element.description%></p>
-                    <h4><%=element.pet_type%> origin is from :<%=element.origin%></h4>
-                </div>
-            </div>
         </div>
+                <div id="div<%=index%>" class="info-div">
+                    <div id="popTitle<%=index%>" class="pop-div">  
+                        <h2><%=element.pet_name%></h2>
+                        <button class="closepop" id="v<%=index%>">&times;</button>
+                    </div>
+                    <div class="pop-desc">
+                        <p> <strong>Gender: </strong> <%=element.gender%> </p>
+                        <p> <strong> <%=element.pet_type%> weight: </strong><%=element.pet_weight%> kg</p>
+                        <p> <strong> Little description: </strong></p>
+                        <p><%=element.description%></p>
+                        <p> <strong><%=element.pet_type%> origin: </strong><%=element.origin%></p>
+                    </div>
+                </div>
         <%});%>
     </main>
     <footer>
