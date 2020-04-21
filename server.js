@@ -92,7 +92,6 @@ function locationHandler(req, res) {
 function homeHandler(req, res) {
   let url;
   if (fact) {
-    console.log('catttts');
     url = 'https://catfact.ninja/facts?limit=1&max_length=140';
     superagent.get(url)
       .then(element => {
@@ -101,7 +100,6 @@ function homeHandler(req, res) {
       });
   }
   if (!fact) {
-    console.log('doooogs');
     url = 'https://dog-api.kinduff.com/api/facts';
     superagent.get(url)
       .then(element => {
