@@ -17,6 +17,7 @@ body{
   /* background-image: url('../images/seriousbg.png'); */
   /* background-repeat: no-repeat; */
   /* overflow: hidden; */
+  overflow-x: hidden;
 }
 main{
   width: 100%;
