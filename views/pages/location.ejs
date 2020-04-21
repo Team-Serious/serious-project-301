@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('../layout/head')%>
+    <title>Animal Adoption Application-Veterinary</title>
+    <style>
+      .tuna {
+  /* steps causes the animation to chunk into 12 equal pieces */
+  animation: walk-cycle 1s steps(12) infinite;
+  background: url(http://stash.rachelnabors.com/img/codepen/tuna_sprite.png) no-repeat; 
+  background-position: 0 0;
+  height: 200px;
+  width: 400px;
+  margin: 100px auto 0;
+  position: absolute;
+  z-index: 9999999999;
+  right: 0;
+  top: 0;
+}
+.place{
+  /* right:50px;
+  top: 20px; */
+  animation: fadeIn ease 1s;
+  /* transition: ease-in-out 2s op ; */
+}
+@keyframes fadeIn{
+  0% {
+    opacity:0;
+  }
+  100% {
+    opacity:1;
+  }
+}
+@keyframes walk-cycle {  
+  0% {background-position: 0 0; } 
+  100% {background-position: 0 -2391px; } /* Must be full height of sprite or skipping will happen.*/
+}
+    </style>
+  </head>
+  <body>
+    <img id="background" src="../../images/seriousbg.png" alt="background" />
+    <div class="tuna "></div>
+    <header>
+      <%- include('../layout/header')%>
+      <!-- will be added from layot -->
+    </header>
+
+    <main id="searchMain">
+      <!-- form to search  by keyword(breed) -->
+      <fieldset>
+        <legend>Find veterinary</legend>
+        <form class="flexColomn" action="/search-result" method="post">
+          <!-- <span
+            >help us find homes for those pets in need. search for a cute pet
+            here..</span -->
+          >
+          <!-- <br> -->
+          <label for="se"> *insert location :</label>
+          <input
+            id="se"
+            class="feedback-input"
+            type="text"
+            name="breed"
+            placeholder="Enter breed name"
+            required
+          />
+          <h6 id="petBreeds" style="font-size: 18px;"></h6>
+          <!-- <br> -->
+          <label for="choice">*pick location type:</label>
+          <div id="choice" class="what">
+            <div class="what">
+            <label class="cont-radio flex" for="cat">
+              <input
+                class="radiobtn"
+                type="radio"
+                name="location"
+                value="userLocationIPYES"
+                required
+              />
+              <span class="newradio"></span>
+
+              Your location</label
+            >
+            </div>
+
+            <div class="what">
+            <label class="cont-radio flex" for="dog">
+              <input
+                class="radiobtn"
+                type="radio"
+                name="location"
+                value="userLocationIP"
+                required
+              />
+              <span class="newradio"></span>
+              Other location</label
+            >
+            </div> 
+          </div>
+          <!-- <br> -->
+          <div id="btndiv">
+            <button type="submit">Search</button>
+          </div>
+        </form>
+      </fieldset>
+
+      <div class="clinic flex" style="border: blue solid; width: 900px;height: 200px;">
+        <%data.forEach(e => { %>
+          <div>
+            <h2>Name: <%=e.poi.name%></h2>
+            <h6>Street Name: <%=e.address.streetName%></h6>
+          </div>
+      <%  });   %>
+      </div>
+    </main>
+    
+    <footer>
+      <%- include('../layout/footer')%>
+
+      <!-- will be added from layot -->
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>

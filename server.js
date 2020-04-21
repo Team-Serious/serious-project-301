@@ -7,7 +7,7 @@ const PORT = process.env.PORT || 3000;
 const methodOverride = require('method-override');
 const pg = require('pg');
 const client = new pg.Client(process.env.DATABASE_URL);
-const fetch = require('node-fetch');
+// const fetch = require('node-fetch');
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
 app.use(express.static('./public'));
 
@@ -49,19 +49,56 @@ function aboutHandler(req, res) {
   res.render('pages/about');
 }
 
-var y = 0;
+// var y = 0;
 let fact = true;
+
+
+// testing rout for location
+app.get('/location', locationHandler);
+function locationHandler(req, res) {
+  let x = 'userLocationIP';
+  if (x === 'userLocationIP') {
+    console.log('NOOOOT ONE');
+    let lattitude = '31.963329315185547';
+    let longitude = '35.93000030517578';
+    let url = `https://api.tomtom.com/search/2/search/veterinary.json?key=GMFfBKIChoDiNn2l8Tlgd4dhUbdVf4VZ&lat=${lattitude}&lon=${longitude}`;
+    superagent.get(url)
+      .then(data => {
+        res.render('pages/location', { data: data.body.results });
+      });
+
+  } else {
+    // fetch('https://api.ipify.org/?format=json')
+    //   .then(result => result.json())
+    // .then(ipaddress => {
+    // console.log(ipaddress);
+    // let url = `http://ip-api.com/json/${ipaddress.ip}`;
+    let url = 'http://ip-api.com/json/';
+    superagent.get(url)
+      .then(locationData => {
+        let lattitude = locationData.body.lat;
+        let longitude = locationData.body.lon;
+        let url = `https://api.tomtom.com/search/2/search/veterinary.json?key=GMFfBKIChoDiNn2l8Tlgd4dhUbdVf4VZ&lat=${lattitude}&lon=${longitude}`;
+        superagent.get(url)
+          .then(data => {
+            res.render('pages/search', { data: data.body.results });
+          });
+      });
+    // });
+  }
+}
+
 ///// function homehandler for ('/')
 function homeHandler(req, res) {
 
 
-  fetch('https://api.ipify.org/?format=json')
-    .then(result => result.json())
-    .then(x => {
-      console.log(x);
-      return x;
-    })
-    .then(z => y = z);
+  // fetch('https://api.ipify.org/?format=json')
+  //   .then(result => result.json())
+  //   .then(x => {
+  //     console.log(x);
+  //     return x;
+  //   })
+  //   .then(z => y = z);
   // .then(m => console.log('rrrr', r, y, m));
   let url;
   if (fact) {
@@ -122,10 +159,10 @@ function addToRehome(req, res) {
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ///// function searchhandler for ('/search')
 function searchHandler(req, res) {
-  console.log(y.ip, 'ooooo');
-  let url = 'http://ip-api.com/json/149.200.225.167';
-  superagent.get(url)
-    .then(data => console.log(data.body));
+  // console.log(y.ip, 'ooooo');
+  // let url = 'http://ip-api.com/json/149.200.225.167';
+  // superagent.get(url)
+  //   .then(data => console.log(data.body));
   res.render('pages/search');
 }
 let petObjects = [];

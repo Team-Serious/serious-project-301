@@ -44,10 +44,25 @@ $(document).ready(function () {
     $('.bgblack').hide();
   });
 
+  // moving cat
+  let right = 0;
+  let top =0;
+  setInterval(function () {
+    right=-400;
+    top=$(window).scrollTop();
+    $('.tuna').css('top', `${top}px`);
+  }, 30000);
+  setInterval(function () {
+    if (right < $(window).width()) right += 10;
+    $('.tuna').css('right', `${right}px`);
+  }, 50);
+
+
+
 
   // search page -- recommendation 'search breed'
-  $('input[type="radio"]').on('click',recommended);
-  $('#se').on('keyup',recommended);
+  $('input[type="radio"]').on('click', recommended);
+  $('#se').on('keyup', recommended);
 
 
   // user page -- update button
@@ -72,31 +87,31 @@ $(document).ready(function () {
 
 
 
-function recommended(){
+function recommended() {
   let catsBreed = ['abys', 'aege', 'abob', 'acur', 'asho', 'awir', 'amau', 'amis', 'bali', 'bamb'];
   let dogsBreed = ['Akbash_Dog', 'Afghan_Hound', 'Airedale_Terrier', 'Alaskan_Husky', 'American_Bulldog', 'Akita'];
 
   let petBreed = [];
   let str = '';
-  if($('input[name="pet"]:checked').val()==='cat'){
+  if ($('input[name="pet"]:checked').val() === 'cat') {
     catsBreed.forEach(e => {
       petBreed.push(e);
     });
-  }else if($('input[name="pet"]:checked').val()==='dog'){
+  } else if ($('input[name="pet"]:checked').val() === 'dog') {
     dogsBreed.forEach(e => {
       petBreed.push(e);
     });
-  }else{
-    catsBreed = [...catsBreed,...dogsBreed];
+  } else {
+    catsBreed = [...catsBreed, ...dogsBreed];
     catsBreed.forEach(e => {
       petBreed.push(e);
     });
   }
 
-  str=petBreed.join(' ');
+  str = petBreed.join(' ');
   let q = $('#se').val();
-  let s =`\\b(${q})\\w+`;
-  let regx = new RegExp(s,'gi');
+  let s = `\\b(${q})\\w+`;
+  let regx = new RegExp(s, 'gi');
   let char = str.match(regx) || ['no matches found'];
   $('#petBreeds').text(char);
 }
