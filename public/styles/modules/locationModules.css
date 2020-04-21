@@ -221,7 +221,7 @@ h1 {
   font-weight: 700;
   margin: 0;
   text-transform: uppercase;
-  width: 90%;
+  /* width: 90%; */
 }
 
 em {
