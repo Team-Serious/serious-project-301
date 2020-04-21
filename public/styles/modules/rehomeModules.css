@@ -6,6 +6,7 @@
 #RehomeMain h3 {
   font-size: 20px;
   margin: 8px;
+  margin-left: 184px;
 }
 #RehomeMain > fieldset{
   width: 80%;
@@ -36,19 +37,31 @@
   width: 90%;
 }
 #RehomeMain input[type="radio"]{
-  padding: 12px;
-  margin: 3px 0;
-  width:5%
+  background-color: initial;
+  cursor: pointer;
+  /* -webkit-appearance: radio; */
+  /* box-sizing: border-box; */
+  margin: 6px 0px 0px 8px;
+  padding: initial;
+  border: none;
+  width: 40px;
+  height: 40px;
+  z-index: 22222222222;
 }
 #RehomeMain textarea{
   margin: 5px 0;
-  width: 90%;
+  width: 92.2%;
 }
 #RehomeMain button{
   width: 25%;
   border-radius: 5px;
   padding: 9px;
+  margin: auto;
 }
 #RehomeMain label {
   margin-right: 50px;
+  display: flex;
+}
+#fill{
+  display: flex;
 }

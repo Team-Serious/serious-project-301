@@ -8,6 +8,7 @@
 
 <body>
   <header>
+    <img id="background" src="../../images/seriousbg.png" alt="background">
     <%- include('../layout/header')%>
   </header>
 
@@ -15,30 +16,38 @@
     <h2> To add your Pet to our service, follow the Steps below </h2>
     <div>
       <h3>Step 1: Fill out this form with your pet's data </h3>
-      <h3>Step 2: Click SUBMIT to add your pet to our DATABASE</h3>
+      <h3>Step 2: Click Rehome Your pet to add your pet to our DATABASE</h3>
     </div>
-      <fieldset>
-        <legend> Rehome form</legend>
-        <form action="/add" method="post">
-          <div>
-            <input type="radio" name="pet" value='cat' required>
-            <label for="cat">Cat</label>
-          
-            <input type="radio" name="pet" value='dog' required>
-            <label for="dog">Dog</label>
-          </div>
+    <fieldset>
+      <legend> Rehome form</legend>
+      <form action="/add" method="post">
+        <div>
+          <label for="choice">*pick pet type:</label>
+          <div id="choice" class="what">
+            <div class="what">
+              <label class="cont-radio flex" for="cat">
+                <input class="radiobtn" type="radio" name="pet" value="cat" required />
+                <span class="newradio"></span>
 
-              <input  type="text" name="name"  placeholder="Enter Animal name" required>
-              <input  type="text" name="Breed" placeholder="Enter Animal Breed" required>
-              <input  type="text" name="origin" placeholder="Enter Animal origin" required>
-              <input  type="text" name="age" placeholder="Enter Animal age" required>
-              <input  type="text" name="gender" placeholder="Enter Animal gender" required>
-              <input  type="text" name="weight" placeholder="Enter Animal weight" required>
-              <input  type="text" name="imgLink" placeholder="Enter Animal image Link" required>  
-              <textarea name="disc" id="" cols="35" rows="10"  placeholder="Enter Discription"></textarea>
+                Cat</label>
 
-              <button type="submit">Rehome Your pet</button>
-          </form>
+              <label class="cont-radio flex" for="dog">
+                <input class="radiobtn" type="radio" name="pet" value="dog" required />
+                <span class="newradio"></span>
+                Dog</label>
+            </div>
+            <p>Fill the form with your pit details </p>
+            <input class="inp-col" type="text" name="name" placeholder="Enter Animal name" required>
+            <input class="inp-col" type="text" name="Breed" placeholder="Enter Animal Breed" required>
+            <input class="inp-col" type="text" name="origin" placeholder="Enter Animal origin" required>
+            <input class="inp-col" type="text" name="age" placeholder="Enter Animal age" required>
+            <input class="inp-col" type="text" name="gender" placeholder="Enter Animal gender" required>
+            <input class="inp-col" type="text" name="weight" placeholder="Enter Animal weight" required>
+            <input class="inp-col" type="text" name="imgLink" placeholder="Enter Animal image Link" required>
+            <textarea class="inp-col" name="disc" cols="35" rows="10" placeholder="Enter Discription"></textarea>
+
+            <button class="btns" type="submit">Rehome Your pet</button>
+      </form>
     </fieldset>
     </form>
   </main>
