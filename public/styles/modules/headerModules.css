@@ -76,7 +76,9 @@ header li{
   right: -109px;
   top: -47px;
   background-color: #301656;
+  opacity: 0.7988;
   z-index: 9;
+  /* position: fixed; */
   transition: ease 1s;
 }
 

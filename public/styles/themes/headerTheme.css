@@ -11,6 +11,7 @@ header li{
   background-color: black;
 }
 
-#hdr>h1{
-
+header{
+  background-color: #c8bdd8;
+  border-bottom: #9b8fb1 10px solid;
 }
