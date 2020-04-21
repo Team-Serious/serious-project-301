@@ -7,7 +7,6 @@ const PORT = process.env.PORT || 3000;
 const methodOverride = require('method-override');
 const pg = require('pg');
 const client = new pg.Client(process.env.DATABASE_URL);
-// const fetch = require('node-fetch');
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
 app.use(express.static('./public'));
 
@@ -19,8 +18,8 @@ app.use(methodOverride('_method'));
 app.set('view engine', 'ejs');
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 let names = ['Kyrie', 'Sage', 'Justice', 'Alfie', 'Haven', 'Reece', 'Finn', 'Sterling', 'Landry', 'Indigo', 'Shay', 'Jules', 'Halo', 'Coco', 'Blair', 'Navy', 'Miller', 'Ocean', 'Cleo', 'Lennox', 'Gianno', 'Frankie', 'Jamie', 'Oakley', 'Drew', 'Armani', 'Noel', 'Milan', 'Lennon', 'London', 'Charlie', 'alexis', 'Taylor', 'Blake', 'Quinn', 'Parker', 'Angel', 'Jordan'];
-
 let selectedNames = [];
+let fact = true;
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ///// ROUTS
 app.get('/', homeHandler);
@@ -31,8 +30,13 @@ app.get('/rehome', rehomeHandler);
 app.get('/user', userHandler);
 app.delete('/delete/:id', deletePet);
 app.put('/update/:id', updatePet);
+app.get('/location', locationHandler);
+app.post('/pet/:pet_name',insertToDatabase);
+app.post('/add', addToRehome);
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
-function userHandler(req, res) { /// this to render the user seletion   (Hussien , complete from here).
+
+// function to show user data from database '/user'
+function userHandler(req, res) {
   let SQL = 'SELECT * FROM selected_pet;';
   client.query(SQL)
     .then(data => {
@@ -40,33 +44,24 @@ function userHandler(req, res) { /// this to render the user seletion   (Hussien
     });
 }
 
+// function that render a form for rehome a pet '/rehome'
 function rehomeHandler(req, res) {
   res.render('pages/rehome');
 }
 
-////// function aboutHandler for ('/about')
+// function about Us page '/about'
 function aboutHandler(req, res) {
   res.render('pages/about');
 }
 
-// var y = 0;
-let fact = true;
-
-
-// testing rout for location
-app.get('/location', locationHandler);
+// function to display nearest Veterinarians '/location'
 function locationHandler(req, res) {
-  // console.log(req.query,'quuuery');
-  // let x = 'userLocationIP';
   let locationType = req.query.ipRadio;
   if (locationType === 'useOtherlocation') {
-    console.log('NOOOOT ONE');
-    // let locationFtomUser ='zarqa';
     let locationFtomUser = req.query.userInput;
     let url = `https://api.opencagedata.com/geocode/v1/json?q=${locationFtomUser}&key=${process.env.API_opencagedata_KEY}`;
     superagent.get(url)
       .then(data => {
-        // console.log(data.body.results[0].annotations);
         let lattitude = data.body.results[0].geometry.lat;
         let longitude = data.body.results[0].geometry.lng;
         return [lattitude, longitude];
@@ -75,18 +70,11 @@ function locationHandler(req, res) {
         let longitude = latlondata[1];
         url = `https://api.tomtom.com/search/2/search/veterinary.json?key=${process.env.API_TOMTOM_LOCATION_KEY}&lat=${lattitude}&lon=${longitude}`;
         superagent.get(url)
-          .then(data => {
-            // console.log(data.body.results[0].annotations);
-            res.render('pages/location', { data: data.body.results });
+          .then(data => {res.render('pages/location', { data: data.body.results });
           });
       });
 
   } else {
-    // fetch('https://api.ipify.org/?format=json')
-    //   .then(result => result.json())
-    // .then(ipaddress => {
-    // console.log(ipaddress);
-    // let url = `http://ip-api.com/json/${ipaddress.ip}`;
     let url = 'http://ip-api.com/json/';
     superagent.get(url)
       .then(locationData => {
@@ -94,29 +82,14 @@ function locationHandler(req, res) {
         let longitude = locationData.body.lon;
         let url = `https://api.tomtom.com/search/2/search/veterinary.json?key=${process.env.API_TOMTOM_LOCATION_KEY}&lat=${lattitude}&lon=${longitude}`;
         superagent.get(url)
-          .then(data => {
-            // console.log(data.body.results);
-            // console.log(data.body.results[0]);
-
-            res.render('pages/location', { data: data.body.results });
+          .then(data => {res.render('pages/location', { data: data.body.results });
           });
       });
-    // });
   }
 }
 
 ///// function homehandler for ('/')
 function homeHandler(req, res) {
-
-
-  // fetch('https://api.ipify.org/?format=json')
-  //   .then(result => result.json())
-  //   .then(x => {
-  //     console.log(x);
-  //     return x;
-  //   })
-  //   .then(z => y = z);
-  // .then(m => console.log('rrrr', r, y, m));
   let url;
   if (fact) {
     console.log('catttts');
@@ -143,24 +116,21 @@ function homeHandler(req, res) {
 function deletePet(req, res) {
   let sql = 'DELETE FROM selected_pet WHERE id=$1;';
   let safeValue = [req.params.id];
-  // console.log(safeValue);
-
   client.query(sql, safeValue)
-    .then(res.redirect('/'));
+    .then(res.redirect('/user'));
 }
+
 ///// function updatePet for ('/update')
 function updatePet(req, res) {
   let { pet_name, breed, pet_weight, description, origin } = req.body;
   let id = req.params.id;
   let sql = 'UPDATE selected_pet SET pet_name=$1,breed=$2,pet_weight=$3,description=$4,origin=$5 WHERE id=$6; ';
   let safeValues = [pet_name, breed, pet_weight, description, origin, id];
-  // console.log('zzzzzzz00', safeValues);
-
   client.query(sql, safeValues)
     .then(res.redirect(`/user`));
 }
+
 ///// Insert the selected pet(rehome) to the DB
-app.post('/add', addToRehome);
 function addToRehome(req, res) {
   console.log(req.body);
   let { pet, name, gender, Breed, weight, imgLink, disc, origin } = req.body;
@@ -168,28 +138,24 @@ function addToRehome(req, res) {
   let safeValues = [pet, name, gender, Breed, weight, imgLink, disc, origin, Breed, 'F'];
   console.log(safeValues, 'xxxxxxxxxxxxxxx');
   client.query(sql, safeValues)
-
     .then(() => {
       res.redirect('/');
     });
 }
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////
-///// function searchhandler for ('/search')
+
+// function searchhandler for ('/search')
 function searchHandler(req, res) {
-  // console.log(y.ip, 'ooooo');
-  // let url = 'http://ip-api.com/json/149.200.225.167';
-  // superagent.get(url)
-  //   .then(data => console.log(data.body));
   res.render('pages/search');
 }
-let petObjects = [];
 
+
+
+let petObjects = [];
 /// Insert the selected pet to the DB  ( selected_pet table ) this just do the insert and redirect to '/user'
-app.post('/pet/:pet_name', (req, res) => {
+function insertToDatabase(req, res){
   let unique = req.params.pet_name;
   petObjects.forEach(val => {
     if (unique === val.pet_name) {
-      // let selectedPet = val;
       let SQL = 'INSERT INTO selected_pet (pet_type,pet_name,gender,breed, pet_weight, img, description, origin, search_req) VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9);';
       let safeValues = [val.pet_type, val.pet_name, val.gender, val.breed, val.pet_weight, val.img, val.description, val.origin, val.search_req];
       client.query(SQL, safeValues)
@@ -198,28 +164,21 @@ app.post('/pet/:pet_name', (req, res) => {
         });
     }
   });
-});
+}
 
 function searchResulthHandler(req, res) {
-
-
   let url;
   if (req.body.pet === 'cat') {
     console.log('cats');
     let SQL = 'SELECT * FROM search_result WHERE search_req=$1;';
     let value = [req.body.breed];
-    console.log(SQL);
     client.query(SQL, value)
       .then(data => {
-        console.log('then');
-        console.log(data.rows);
         let counter = data.rows.reduce((acc, e) => {
           if (e.isfromapi === 'T') acc++;
           return acc;
         }, 0);
-        console.log('my counter', counter);
         if (counter > 0) {
-          console.log('from DB', data.rows);
           res.render('pages/search-result', { data: data.rows });
         }
         else {
@@ -229,8 +188,6 @@ function searchResulthHandler(req, res) {
               petObjects.push(el);
             }
           });
-          // let cat;
-          console.log('else');
           url = `https://api.thecatapi.com/v1/images/search?breed_ids=${req.body.breed}&include_breeds=true&limit=12`;
           superagent.get(url)
             .then(data => {
@@ -262,18 +219,13 @@ function searchResulthHandler(req, res) {
   if (req.body.pet === 'dog') {
     let SQL = 'SELECT * FROM search_result WHERE search_req=$1;';
     let value = [req.body.breed];
-    console.log(SQL);
     client.query(SQL, value)
       .then(data => {
-        console.log('then');
-        console.log(data.rows);
         let counter = data.rows.reduce((acc, e) => {
           if (e.isfromapi === 'T') acc++;
           return acc;
         }, 0);
-        console.log('hhhh', counter);
         if (counter > 0) {
-          console.log('from DB', data.rows);
           res.render('pages/search-result', { data: data.rows });
         } else {
           petObjects = [];
@@ -345,13 +297,10 @@ function Dogs(data, req, name) {
   this.isFromApi = 'T';
 }
 
-
 ////////error
 app.get('*', (req, res) => {
   res.render('pages/error');
 });
-
-
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
 client.connect()

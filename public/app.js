@@ -98,9 +98,8 @@ $(document).ready(function () {
 
 
 function recommended() {
-  let catsBreed = ['abys', 'aege', 'abob', 'acur', 'asho', 'awir', 'amau', 'amis', 'bali', 'bamb'];
+  let catsBreed=['abys', 'aege', 'abob', 'acur','asho', 'awir', 'amau', 'amis', 'bali', 'bamb', 'char','dons','hima', 'java','kora','kuri','lape', 'mala', 'manx', 'nebe', 'norw', 'ocic', 'orie', 'pers', 'pixi', 'raga', 'ragd', 'sava', 'siam', 'sibe', 'snow'];
   let dogsBreed = ['Akbash_Dog', 'Afghan_Hound', 'Airedale_Terrier', 'Alaskan_Husky', 'American_Bulldog', 'Akita'];
-
   let petBreed = [];
   let str = '';
   if ($('input[name="pet"]:checked').val() === 'cat') {
