@@ -2,11 +2,12 @@
 .textCenter{
   text-align: center;
 }
-main >section:first-child >div{
+section div{
   width: 50%;
 }
 main >section{
   margin: 30px 0;
+  height: 350px;
 }
 .searchBtn{
   width: 10%;
@@ -69,17 +70,67 @@ main >section{
   transition: 0.8s;
   height: 179px;
 }
-main>p{
-  margin-top: 100px;
+main>#thefact{
+  margin-top: 50px;
+  margin-bottom: 50px;
   font-size: 2em;
+  /* display: flex; */
+  /* align-items: center; */
+}
+#thefact>h4{
+  text-transform: uppercase;
+  animation: flash infinite 3s;
+  background-color: #c8bdd8;
+  width: 205px;
+  padding: 2%;
+  box-shadow: #beadd6 -6px 5px 8px;
+  border-radius: 3px;
+}
+#thefact>p{
+  animation: lightSpeedIn forwards 3s;
+}
+@-webkit-keyframes flash {
+  from,
+  50%,
+  to {
+    opacity: 1;
+  }
+
+  25%,
+  75% {
+    opacity: 0;
+  }
+}
+@-webkit-keyframes lightSpeedIn {
+  from {
+    -webkit-transform: translate3d(100%, 0, 0) skewX(-30deg);
+    transform: translate3d(100%, 0, 0) skewX(-30deg);
+    opacity: 0;
+  }
+
+  60% {
+    -webkit-transform: skewX(20deg);
+    transform: skewX(20deg);
+    opacity: 1;
+  }
+
+  80% {
+    -webkit-transform: skewX(-5deg);
+    transform: skewX(-5deg);
+  }
+
+  to {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
 }
 /***********************************************/
 #slider{
  width: 50%;
-  height: 50%;
+  height: 100%;
   padding-top: 0;
   margin-left: 50px;
-  margin-right: 50px;
+  /* margin-right: 50px; */
   margin-bottom: 30px;
   overflow: hidden;
   -webkit-animation: glowlogo 2s ease-in-out infinite alternate;
