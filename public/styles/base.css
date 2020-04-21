@@ -13,6 +13,7 @@ body{
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
   font-family: 'Yanone Kaffeesatz', sans-serif;
   /* background-image: url('../images/seriousbg.png'); */
   /* background-repeat: no-repeat; */
@@ -20,12 +21,12 @@ body{
   overflow-x: hidden;
 }
 main{
-  width: 100%;
+  width: 80%;
   display: flex;
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  padding: 1%;
+  padding: 3%;
 }
 
 input[type="radio" i] {
