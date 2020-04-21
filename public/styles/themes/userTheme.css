@@ -1,3 +1,24 @@
-#userMain h4{
-  border: solid gold;
+/* #userMain h4 {
+  border: solid #5e4b7d;
+} */
+
+#userMain button{
+  color: white;
+    background-color: #301656;
+    box-shadow: 1px 1px #7f7198;
+
+}
+
+
+
+#userMain .updateFormUser
+{
+background: #817a8c80;
+    border: solid #30165696;
+}
+
+#userMain .divNames{
+  background: #5e4c7da8;
+  box-shadow: 9px 7px 15px;
+  border-radius: 30px;
 }
