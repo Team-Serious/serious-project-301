@@ -61,7 +61,7 @@ function locationHandler(req, res) {
     console.log('NOOOOT ONE');
     let lattitude = '31.963329315185547';
     let longitude = '35.93000030517578';
-    let url = `https://api.tomtom.com/search/2/search/veterinary.json?key=GMFfBKIChoDiNn2l8Tlgd4dhUbdVf4VZ&lat=${lattitude}&lon=${longitude}`;
+    let url = `https://api.tomtom.com/search/2/search/veterinary.json?key=${process.env.API_TOMTOM_LOCATION_KEY}&lat=${lattitude}&lon=${longitude}`;
     superagent.get(url)
       .then(data => {
         res.render('pages/location', { data: data.body.results });
