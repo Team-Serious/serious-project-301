@@ -1,7 +1,7 @@
 
 .visionMission{
   border: solid #30165696;
-  background: #817a8c80;
+  background-color: #c0bcc5;
 }
 
 .Cat button{
@@ -9,4 +9,8 @@
   border: 2px solid #301656;
   color: #301656;
   font-family: 'Yanone Kaffeesatz', sans-serif;
+}
+.withbg{
+  border: solid 4px #9c91ae;
+  border-radius: 5px;
 }
