@@ -116,3 +116,9 @@ function recommended() {
   $('#petBreeds').text(char);
 }
 
+$('.shortDisc').hover(function(){
+  let divId= $(this).attr('id');
+  divId= '#img'+ divId;
+  console.log(divId);
+  $(divId).toggleClass('imgflip');
+})
