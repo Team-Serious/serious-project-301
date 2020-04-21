@@ -4,6 +4,7 @@
 }
 section div{
   width: 50%;
+  height: 100%;
 }
 main >section{
   margin: 30px 0;
@@ -24,8 +25,9 @@ main >section{
   font-size: 1.5em;
 }
 .visionMission{
+  height: 250px;
   margin-top: 100px;
-  padding: 4% 0%;
+  /* padding: 4% 0%; */
   display: flex;
   justify-content: space-around;
   font-size: 1.5em;
@@ -133,9 +135,9 @@ main>#thefact{
   /* margin-right: 50px; */
   margin-bottom: 30px;
   overflow: hidden;
-  -webkit-animation: glowlogo 2s ease-in-out infinite alternate;
+  /* -webkit-animation: glowlogo 2s ease-in-out infinite alternate;
   -moz-animation: glowlogo 2s ease-in-out infinite alternate;
-  animation: glowlogo 2s ease-in-out infinite alternate;
+  animation: glowlogo 2s ease-in-out infinite alternate; */
   
 }
 #slider figure {
@@ -182,5 +184,76 @@ main>#thefact{
   }
   100% {
       left: -400%;
+  }
+}
+/* ---------- vision&mission---------*/
+#vtitle, #mtitle{
+  /* height: 100%; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-transform: uppercase;
+  position: relative;
+  overflow: hidden;
+}
+#vtitle>h4, #mtitle>h4{
+  font-size: 3em;
+  /* transition: transform 1s; */
+
+}
+#vtext{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #c0bcc5;
+  z-index: 5842645161142;
+  transform: translateX(-250%);
+  transition: transform 2s;
+}
+#mtext{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #c0bcc5;
+  z-index: 5842645161142;
+  transform: translateX(250%);
+  transition: transform 2s;
+}
+#vtitle:hover h4, #mtitle:hover h4{
+  animation: fadeOut 2s forwards;
+}
+@-webkit-keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+#vtitle:hover #vtext, #mtitle:hover #mtext{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+    /* animation: slideInLeft forwards 2s; */
+  transform: translateX(0%);
+  transition: transform 2s;
+}
+@-webkit-keyframes slideInLeft {
+  0% {
+    -webkit-transform: translate3d(-100%, 0, 0);
+    transform: translate3d(-100%, 0, 0);
+    visibility: visible;
+  }
+
+  100% {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
   }
 }
