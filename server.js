@@ -75,7 +75,7 @@ function locationHandler(req, res) {
         url = `https://api.tomtom.com/search/2/search/veterinary.json?key=${process.env.API_TOMTOM_LOCATION_KEY}&lat=${lattitude}&lon=${longitude}`;
         superagent.get(url)
           .then(data => {
-            console.log(data.body.results);
+            // console.log(data.body.results);
             res.render('pages/location', { data: data.body.results });
           });
       });
