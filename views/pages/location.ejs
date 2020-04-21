@@ -3,24 +3,6 @@
   <head>
     <%- include('../layout/head')%>
     <title>Animal Adoption Application-Veterinary</title>
-    <style>
-  
-.place{
-  /* right:50px;
-  top: 20px; */
-  animation: fadeIn ease 1s;
-  /* transition: ease-in-out 2s op ; */
-}
-@keyframes fadeIn{
-  0% {
-    opacity:0;
-  }
-  100% {
-    opacity:1;
-  }
-}
-
-    </style>
   </head>
   <body>
     <img id="background" src="../../images/seriousbg.png" alt="background" />
@@ -30,11 +12,6 @@
     </header>
 
     <main id="locationMain">
-
-
-
-      
-      <!-- <img src="https://c1.wallpaperflare.com/preview/330/506/524/veterinarian-animals-funny-veterinary.jpg" alt=""> -->
       <fieldset>
         <legend>Find veterinary</legend>
         <form class="flexColomn" action="/location" method="get">
@@ -82,19 +59,30 @@
           </div>
         </form>
       </fieldset>
-
       <div class="clinic">
+        
         <h2>Nearest Veterinarians found</h2>
-        <%data.forEach(e => { %>
-          <div class="sub-clinic">
- 
-            <h5>Name: <%=e.poi.name?e.poi.name:'no name found'%></h5>
-            <h6>Street Name: <%=e.address.streetName?e.address.streetName:'no street name found'%></h6>
-            <h6>Municipality: <%=e.address.municipality?e.address.municipality:'no municipality found' %></h6>
-            <h6>city: <%=e.address.countrySubdivision%></h6>
-          </div>
-      <%  });   %>
-      </div>
+      <%data.forEach(e => { %>
+      
+      <div class="container ">
+
+        <div class="card">
+          <div class="envelope"></div>
+          <h1>Welcome to<em> <%=e.poi.name?e.poi.name:'no name found'%></em> at <em><%=e.address.streetName?e.address.streetName:e.address.municipality%></em></h1>
+          <!-- <div class="heart"></div> -->
+          <!-- <h5>Name: <%=e.poi.name?e.poi.name:'no name found'%></h5> -->
+          <!-- <h6>Street Name: <%=e.address.streetName?e.address.streetName:'no street name found'%></h6> -->
+          <br>
+          <br>
+          <h6>Municipality: <%=e.address.municipality?e.address.municipality:'no municipality found' %></h6>
+          <h6>city: <%=e.address.countrySubdivision%></h6>
+        </div>
+      
+      
+    </div>
+<%  });   %>
+</div>
+
     </main>
     
     <footer>
