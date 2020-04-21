@@ -80,7 +80,7 @@ $(document).ready(function () {
     $('.bgblack').hide();
   });
 
-
+  // user page
   $('.f').hide();
   $('.updateUser').on('click', function () {
     let btnId = $(this).attr('id');
@@ -98,9 +98,8 @@ $(document).ready(function () {
 
 
 function recommended() {
-  let catsBreed = ['abys', 'aege', 'abob', 'acur', 'asho', 'awir', 'amau', 'amis', 'bali', 'bamb'];
+  let catsBreed = ['abys', 'aege', 'abob', 'acur', 'asho', 'awir', 'amau', 'amis', 'bali', 'bamb', 'char', 'dons', 'hima', 'java', 'kora', 'kuri', 'lape', 'mala', 'manx', 'nebe', 'norw', 'ocic', 'orie', 'pers', 'pixi', 'raga', 'ragd', 'sava', 'siam', 'sibe', 'snow'];
   let dogsBreed = ['Akbash_Dog', 'Afghan_Hound', 'Airedale_Terrier', 'Alaskan_Husky', 'American_Bulldog', 'Akita'];
-
   let petBreed = [];
   let str = '';
   if ($('input[name="pet"]:checked').val() === 'cat') {
@@ -123,7 +122,13 @@ function recommended() {
   let s = `\\b(${q})\\w+`;
   let regx = new RegExp(s, 'gi');
   let char = str.match(regx) || ['no matches found'];
-  $('#petBreeds').text(char);
+  console.log(char);
+  let newStr = char.join(' ');
+  console.log(newStr);
+  $('#petBreeds').html('');
+  char.forEach( e => {
+    $('#petBreeds').append($('<h6></h6>').text(`(${e})`).css('color', '#757575'));
+  });
 }
 
 $('.shortDisc').hover(function () {
