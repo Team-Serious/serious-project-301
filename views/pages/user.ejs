@@ -7,49 +7,61 @@
 </head>
 
 <body>
+  <img id="background" src="../../images/seriousbg.png" alt="background">
   <header>
     <%- include('../layout/header')%>
   </header>
-
+  <div class="bgblack"></div>
   <main id="userMain" class="flexColomn">
 
     <% pets.forEach((element,index) =>{ %>
+  <div class='pet-class'>  
     <div class="divdiv">
-      <img style="width: 150px;" src="<%=element.img%>" alt="">
       <div class="divNames">
-        <h4><%=element.pet_type%> name is: <%=element.pet_name%></h4>
-        <h4><%=element.pet_type%> breed is: <%=element.breed%></h4>
-        <div class="flex buttonsDiv">
-          <form action="">
-            <button name="userInfo">Learn More About <%=element.pet_name%></button>
-          </form>
-          <div id="div<%=index%>" class="info-div">
-            <div id="popTitle<%=index%>" class="pop-div">
-              <h2><%=element.pet_name%></h2>
-              <button class="closepop" id="v<%=index%>">&times;</button>
-            </div>
-            <div class="hidden">
-              <h4>Gender:<%=element.gender%> </h4>
-              <h4><%=element.pet_type%> minimum weight is:<%=element.pet_weight%> kg</h4>
-              <h3>Little description:</h3>
-              <p><%=element.description%></p>
-              <h4><%=element.pet_type%> origin is from :<%=element.origin%></h4>
-            </div>
+        <div class="flex-h2">  
+          <img style="width: 150px;" src="<%=element.img%>" alt="">
+          <div class="pet-name">
+            <h4><%=element.pet_type%> name is: <%=element.pet_name%></h4>
+            <h4><%=element.pet_type%> breed is: <%=element.breed%></h4>
           </div>
+        </div>
+        <div class="flex buttonsDiv">
+          <!-- <form action=""> -->
+        <div id="user-btn"> 
+
+            
+            <button name="userInfo" class="userInfo" id="learn<%=index%>">Know <%=element.pet_name%> more</button>
+          <!-- </form> -->
+          
+
+            <div id="poplearn<%=index%>" class="info-div">
+              <div id="popTitle<%=index%>" class="pop-div">
+                <h2><%=element.pet_name%></h2>
+                <button class="closepop" id="n<%=index%>">&times;</button>
+              </div>
+              <div class="pop-desc1 pop-desc"  >
+                <p> <strong>Gender:</strong> <%=element.gender%> </p>
+                <p> <strong><%=element.pet_type%>  Weight :</strong> <%=element.pet_weight%></p>
+                <p> <strong>Little description:</strong> </p>
+                <p><%=element.description%></p>
+                <p> <strong> <%=element.pet_type%> Origin  :</strong> <%=element.origin%></p>
+              </div>
+            </div>  
+            </div>
           <!-- <form> -->
-            <button id="<%=element.id%>" class = "updateUser">Update</button>
+            <button id="<%=element.id%>" class = "updateUser">Update <%=element.pet_name%> Information </button>
           <!-- </form> -->
           <form action="/delete/<%=element.id%>?_method=delete" method="post">
-            <button> Delete</button>
+            <button > Remove <%=element.pet_name%> </button>
           </form>
-
+        </div>
         </div>
       </div>
     </div>
-    
-    <form id="form<%=element.id%>" class="updateFormUser" action="/update/<%=element.id%>?_method=put" method="post">
-      <label for="pet_name"> Pet name
-
+    <fieldset id="form<%=element.id%>" class="f">
+    <form  class="updateFormUser" action="/update/<%=element.id%>?_method=put" method="post">
+      <label for="pet_name"> 
+        <span>Pet name</span>
         <input id="pet_name" name="pet_name" value="<%=element.pet_name%>">
       </label>
       <label id="breed"> The breed is 
@@ -69,9 +81,11 @@
         <input name="origin" value="<%=element.origin%>">
       </label>
 
-      <button type="submit">Update</button>
+      <button type="submit" id="sub-upd">Submit The Update</button>
     </form>
-    <%});%>
+  </fieldset>
+  </div>
+  <%});%>
   </main>
 
   <footer>

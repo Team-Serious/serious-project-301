@@ -76,7 +76,9 @@ header li{
   right: -109px;
   top: -47px;
   background-color: #301656;
+  opacity: 0.7988;
   z-index: 9;
+  /* position: fixed; */
   transition: ease 1s;
 }
 
@@ -151,6 +153,15 @@ header li{
   /* font-size: 2.005em; */
   color: #e6e6e6;
 }
+.pl2:hover .paw{
+  opacity: 1;
+}
+
+.paw{
+    opacity: 0;
+    transition: 0.3s ease;
+}
+
 .pl3{
   animation: fadeIn ease 4s forwards;
 }
@@ -175,3 +186,4 @@ header li{
   height: 325px;
   transition: ease 1s;
 }
+

@@ -30,6 +30,11 @@
     </header>
 
     <main id="locationMain">
+
+
+
+      
+      <!-- <img src="https://c1.wallpaperflare.com/preview/330/506/524/veterinarian-animals-funny-veterinary.jpg" alt=""> -->
       <fieldset>
         <legend>Find veterinary</legend>
         <form class="flexColomn" action="/location" method="get">
@@ -82,6 +87,7 @@
         <h2>Nearest Veterinarians found</h2>
         <%data.forEach(e => { %>
           <div class="sub-clinic">
+ 
             <h5>Name: <%=e.poi.name?e.poi.name:'no name found'%></h5>
             <h6>Street Name: <%=e.address.streetName?e.address.streetName:'no street name found'%></h6>
             <h6>Municipality: <%=e.address.municipality?e.address.municipality:'no municipality found' %></h6>

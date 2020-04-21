@@ -5,14 +5,18 @@
   margin-bottom: 35px;
 }
 
-#userMain img{
-  border-radius: 175px;
+#userMain img {
+  border-radius: 50%;
+  margin: 15px;
 }
 #userMain .divNames{
 margin-left: 35px;
 width: 100%;
 }
 
+#userMain .pop-div h2 {
+  font-size: x-large;
+}
 #userMain h4{
   font-size: 20px;
   margin: 5px;
@@ -21,18 +25,111 @@ width: 100%;
   padding: 6px;
 }
 
-#userMain .buttonsDiv{
+#userMain .buttonsDiv {
   justify-content: space-around;
   margin: 15px;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
-
 
 #userMain .buttonsDiv form{
   width: 30%;
-  margin: 11px;
 }
 
-#userMain .buttonsDiv button{
+#userMain button{
+  border-radius: 20px;
   padding: 15px;
+  height: 54px;
+
+}
+
+#userMain .info-div{
+  padding: 30px;
+  border: 2px solid #301656;
+  position: fixed;
+  z-index: 999999999;
+  background: #bac;
+  border-radius: 20px;
+}
+
+#userMain .closepop{
+  font-size: 30px;
+    width: 5px;
+    height: 5px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column-reverse
+}
+
+#userMain .divNames {
+  margin-left: 35px;
   width: 100%;
+  
+}
+
+#userMain .flex-h2{
+display: flex;
+}
+
+#userMain .pet-name{
+  margin-top: 25px
+}
+
+#userMain fieldset {
+  width: 52%;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 2.2em;
+  margin-bottom: 40px;
+  margin-right: 99px;
+}
+
+#userMain .updateFormUser {
+  font-family: 'Yanone Kaffeesatz', sans-serif;
+  line-height: 2;
+  position: relative;
+  width: 89.5%;
+  height: 80%;
+  /* text-align: center; */
+  padding: 5%;
+  /* margin: 25px; */
+  display: flex;
+  flex-direction: column;
+}
+#userMain label{
+  text-align: -webkit-left;
+  display: flex;
+  flex-direction: column;
+}
+
+#userMain input{
+  width: 95%;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 6px;
+}
+#sub-upd{
+  margin-top: 25px;
+
+}
+
+#userMain strong{
+  font-weight: bold;
+}
+
+#userMain{
+  font-size: large;
+}
+
+
+#userMain .pop-div {
+
+  padding: 5px 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid;
+
 }

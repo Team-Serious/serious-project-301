@@ -46,10 +46,10 @@ $(document).ready(function () {
 
   // moving cat
   let right = 0;
-  let top =0;
+  let top = 0;
   setInterval(function () {
-    right=-400;
-    top=$(window).scrollTop();
+    right = -400;
+    top = $(window).scrollTop();
     $('.tuna').css('top', `${top}px`);
   }, 30000);
   setInterval(function () {
@@ -64,23 +64,33 @@ $(document).ready(function () {
   $('input[type="radio"]').on('click', recommended);
   $('#se').on('keyup', recommended);
 
+  $('.info-div').hide();
+  $('.userInfo').on('click', function () {
+    let divId = $(this).attr('id');
+    divId = '#pop' + divId;
+    console.log(divId);
+    $(divId).toggle();
+    $('.bgblack').show();
+  });
+  // search result page -- close popup
+  $('.closepop').on('click', function () {
+    let popId = $(this).attr('id');
+    popId = '#poplear' + popId;
+    $(popId).toggle();
+    $('.bgblack').hide();
+  });
 
-  // user page -- update button
-  // $('.updateUser').on('click',function(){
-  //   let userPetId = $('.updateUser').attr('id');
-  //   console.log(userPetId),'pppppppppppppppppp';
-  //   $(`form${userPetId}`).toggle();
-  // });
 
-  // user page -- learn more
-  // $('.info-div').hide();
-  // $('.bgblack').hide();
-  // $('.info-btn').on('click', function () {
-  //   let divId = $(this).attr('id');
-  //   divId = '#div' + divId;
-  //   $(divId).toggle();
-  //   $('.bgblack').show();
-  // });
+  $('.f').hide();
+  $('.updateUser').on('click', function () {
+    let btnId = $(this).attr('id');
+    btnId = '#form' + btnId;
+    $(btnId).toggle();
+
+  });
+
+
+
 });
 
 
@@ -116,9 +126,9 @@ function recommended() {
   $('#petBreeds').text(char);
 }
 
-$('.shortDisc').hover(function(){
-  let divId= $(this).attr('id');
-  divId= '#img'+ divId;
+$('.shortDisc').hover(function () {
+  let divId = $(this).attr('id');
+  divId = '#img' + divId;
   console.log(divId);
   $(divId).toggleClass('imgflip');
 });

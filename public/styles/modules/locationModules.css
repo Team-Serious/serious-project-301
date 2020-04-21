@@ -115,13 +115,24 @@ Radio buttons
 
 .sub-clinic{
   margin: 10px 10px 0 10px;
-  height: 50px;
+  /* height: 50px; */
   width: 25%;
   border: solid;
   padding: 2%;
   border-radius: 11px;
+  background-color: cornflowerblue;
+  box-shadow: 10px 5px gray;
 }
-
+.sub-clinic:hover{
+  background-color: crimson;
+}
+/* .sub-clinic:after{
+background: url("https://c1.wallpaperflare.com/preview/330/506/524/veterinarian-animals-funny-veterinary.jpg");
+content: url("https://c1.wallpaperflare.com/preview/330/506/524/veterinarian-animals-funny-veterinary.jpg");
+width: 50px;
+height: 50px;
+border: solid;
+} */
 .clinic h2{
   display: block;
   width: 100%;
