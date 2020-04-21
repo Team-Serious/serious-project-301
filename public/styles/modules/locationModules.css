@@ -1,0 +1,131 @@
+#locationMain fieldset{
+  width: 80%;
+  /* text-align: center; */
+  text-transform: uppercase;
+  font-size: 2.2em;
+
+}
+#locationMain form{
+  font-family: 'Yanone Kaffeesatz', sans-serif;
+  line-height: 2;
+  position: relative;
+  width: 85%;
+  height: 80%;
+  /* text-align: center; */
+  padding: 5%;
+  margin: 25px;
+}
+#locationMain legend {
+  text-align: center;
+  margin: 5px 0;
+  width: 50%;
+}
+form span{
+  font-size: 0.8em;
+}
+#locationMain form>#btndiv{
+  display: flex;
+  justify-content: center;
+  
+}
+
+#btndiv>button{
+  position: relative;
+  padding: 15px;
+  border-radius: 70px;
+  width: 45%;
+  text-transform: uppercase;
+  font-size: 1.5em;
+  cursor: pointer;
+  box-shadow: #301656d6 6px 12px 12px;
+}
+#btndiv>button:hover{
+  background-color: #301656d6;
+  box-shadow: none;
+}
+#locationMain #se{
+  background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Vector_search_icon.svg/945px-Vector_search_icon.svg.png");
+	background-size: 30px 30px;
+	background-position: 11px 8px;
+	background-repeat: no-repeat;
+}
+
+#locationMain .feedback-input {
+	/* font-family: Helvetica, Arial, sans-serif; */
+	box-sizing: border-box;
+  font-weight:500;
+	font-size: 18px;
+	border-radius: 0;
+	line-height: 22px;
+	padding: 13px 13px 13px 54px;
+	margin-bottom: 10px;
+	width:100%;
+}
+
+#locationMain label{
+  width: 100%;
+  margin: 0 0 0 20px;
+}
+/* =============
+Radio buttons 
+================ */
+
+.newradio{
+  position: absolute;
+  /* top: 0; */
+  /* left: 0; */
+  height: 25px;
+  width: 25px;
+  background-color: #c8bdd8;
+  border: 4px solid #301656;
+  border-radius: 50%;
+}
+.newradio:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+.cont-radio{
+  width: 10%;
+}
+.cont-radio input:checked ~ .newradio:after {
+  display: block;
+}
+
+.cont-radio .newradio:after {
+  top: 9px;
+  left: 9px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #301656;
+}
+
+#locationMain .clinic{
+  margin: 10px 0;
+  border: #301656 solid;
+  width: 100%;
+  height: 100vh;
+  /* height: 659px; */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: baseline;
+}
+
+.sub-clinic{
+  margin: 10px 10px 0 10px;
+  height: 50px;
+  width: 25%;
+  border: solid;
+  padding: 2%;
+  border-radius: 11px;
+}
+
+.clinic h2{
+  display: block;
+  width: 100%;
+  text-align: center;
+  margin: 30px 0 0;
+  font-size: 40px;
+}

@@ -56,15 +56,28 @@ let fact = true;
 // testing rout for location
 app.get('/location', locationHandler);
 function locationHandler(req, res) {
-  let x = 'userLocationIP';
-  if (x === 'userLocationIP') {
+  // console.log(req.query,'quuuery');
+  // let x = 'userLocationIP';
+  let locationType = req.query.ipRadio;
+  if (locationType === 'useOtherlocation') {
     console.log('NOOOOT ONE');
-    let lattitude = '31.963329315185547';
-    let longitude = '35.93000030517578';
-    let url = `https://api.tomtom.com/search/2/search/veterinary.json?key=${process.env.API_TOMTOM_LOCATION_KEY}&lat=${lattitude}&lon=${longitude}`;
+    // let locationFtomUser ='zarqa';
+    let locationFtomUser =req.query.userInput;
+    let url = `https://api.opencagedata.com/geocode/v1/json?q=${locationFtomUser}&key=${process.env.API_opencagedata_KEY}`;
     superagent.get(url)
       .then(data => {
-        res.render('pages/location', { data: data.body.results });
+        let lattitude = data.body.results[0].geometry.lat;
+        let longitude = data.body.results[0].geometry.lng;
+        return [lattitude,longitude];
+      }).then(latlondata => {
+        let lattitude = latlondata[0];
+        let longitude = latlondata[1];
+        url = `https://api.tomtom.com/search/2/search/veterinary.json?key=${process.env.API_TOMTOM_LOCATION_KEY}&lat=${lattitude}&lon=${longitude}`;
+        superagent.get(url)
+          .then(data => {
+            // console.log(data.body.results);
+            res.render('pages/location', { data: data.body.results });
+          });
       });
 
   } else {
@@ -81,7 +94,9 @@ function locationHandler(req, res) {
         let url = `https://api.tomtom.com/search/2/search/veterinary.json?key=${process.env.API_TOMTOM_LOCATION_KEY}&lat=${lattitude}&lon=${longitude}`;
         superagent.get(url)
           .then(data => {
-            res.render('pages/search', { data: data.body.results });
+            // console.log(data.body.results);
+
+            res.render('pages/location', { data: data.body.results });
           });
       });
     // });

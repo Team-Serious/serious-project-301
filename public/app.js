@@ -121,4 +121,4 @@ $('.shortDisc').hover(function(){
   divId= '#img'+ divId;
   console.log(divId);
   $(divId).toggleClass('imgflip');
-})
+});

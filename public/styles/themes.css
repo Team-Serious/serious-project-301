@@ -6,6 +6,7 @@
 @import url("./themes/rehomeTheme.css");
 @import url("./themes/userTheme.css");
 @import url("./themes/footerTheme.css");
+@import url("./themes/locationThemes.css");
 
 body{
     color: #301656;
