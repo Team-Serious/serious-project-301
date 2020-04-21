@@ -1,5 +1,18 @@
 .info-btn{
-  color: white;
-  background-color: purple;
-  box-shadow: 2px 5px #d5d7ff;
+  color: #b8b1c1;
+  background-color: #301656;
+  box-shadow: 3px 3px 10px #301656;
+}
+.btns{
+  color: #b8b1c1;
+  background-color: #301656;
+  box-shadow: 3px 3px 10px #301656;
+}
+.info-btn:hover {
+  color: #301656;
+  background-color: #b8b1c1;
+}
+.btns:hover {
+  color: #301656;
+  background-color: #b8b1c1;
 }
