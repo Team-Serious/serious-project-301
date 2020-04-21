@@ -9,6 +9,14 @@
 
 }
 
+#userMain .info-div{
+  padding: 5px;
+  border: 2px solid #301656;
+  position: fixed;
+  z-index: 999999999;
+  background: #bac;
+  border-radius: 20px;
+}
 
 
 #userMain .updateFormUser
@@ -21,4 +29,18 @@ background: #817a8c80;
   background: #5e4c7da8;
   box-shadow: 9px 7px 15px;
   border-radius: 30px;
+}
+
+#userMain h4{
+  border-bottom: 2px solid #30165696;
+  border-bottom: 2px solid #30165696;
+    text-transform: uppercase;
+    font-size: xx-large;
+}
+
+#userMain input{
+  background-color: #b4b0b9;
+  border: 2px solid #301656;
+  color: #494747;
+
 }
