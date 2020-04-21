@@ -71,8 +71,8 @@ header li{
 }
 
 .showMenu{
-  width: 500px;
-  height: 500px;
+  width: 545px;
+  height: 578px;
   right: -109px;
   top: -47px;
   background-color: #301656;
@@ -160,6 +160,7 @@ header li{
 .paw{
     opacity: 0;
     transition: 0.3s ease;
+    margin: 0px 10px;
 }
 
 .pl3{
@@ -171,7 +172,7 @@ header li{
 }
 .menudiv{
   width: 500px;
-  height: 500px;
+  height: 554px;
   position: absolute;
   right: 0;
   top: 0;

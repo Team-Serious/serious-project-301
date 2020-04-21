@@ -36,7 +36,7 @@
   margin: 3px 0;
   width: 90%;
 }
-#RehomeMain input[type="radio"]{
+#RehomeMain input[type="radio" i]{
   background-color: initial;
   cursor: pointer;
   /* -webkit-appearance: radio; */
@@ -60,8 +60,15 @@
 }
 #RehomeMain label {
   margin-right: 50px;
-  display: flex;
+  /* display: flex; */
 }
-/* #fill{
-  display: flex;
-} */
+#over2{
+  top: 122px;
+  left: 412px;
+  z-index: -9;
+}
+#over1{
+  top: 122px;
+  left: 264px;
+  z-index: -9;
+}
