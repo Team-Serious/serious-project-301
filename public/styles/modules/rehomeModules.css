@@ -22,6 +22,7 @@
   margin: 11px;
   display: flex;
   flex-direction: column;
+  margin: 10px auto;
 }
 #RehomeMain legend {
   text-align: center;

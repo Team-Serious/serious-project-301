@@ -167,7 +167,6 @@ function insertToDatabase(req, res){
 function searchResulthHandler(req, res) {
   let url;
   if (req.body.pet === 'cat') {
-    console.log('cats');
     let SQL = 'SELECT * FROM search_result WHERE search_req=$1;';
     let value = [req.body.breed];
     client.query(SQL, value)
@@ -200,8 +199,8 @@ function searchResulthHandler(req, res) {
                 let SQL1 = 'INSERT INTO search_result (pet_type,pet_name,gender,breed, pet_weight, img, description, origin, search_req, isFromApi) VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10);';
                 let safeValues = [cat.pet_type, cat.pet_name, cat.gender, cat.breed, cat.pet_weight, cat.img, cat.description, cat.origin, req.body.breed, cat.isFromApi];
                 client.query(SQL1, safeValues)
-                  .then(data => {
-                    console.log('added to DB', data.rows);
+                  .then(() => {
+                    // console.log('added to DB', data.rows);
                   });
               });
               res.render('pages/search-result', { data: petObjects });
@@ -247,8 +246,8 @@ function searchResulthHandler(req, res) {
                   let SQL1 = 'INSERT INTO search_result (pet_type,pet_name,gender,breed, pet_weight, img, description, origin, search_req,isFromApi) VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10);';
                   let safeValues = [dog.pet_type, dog.pet_name, dog.gender, dog.breed, dog.pet_weight, dog.img, dog.description, dog.origin, req.body.breed, dog.isFromApi];
                   client.query(SQL1, safeValues)
-                    .then(data => {
-                      console.log('added to DB', data.rows);
+                    .then(() => {
+                      // console.log('added to DB', data.rows);
                     });
                 }
               });

@@ -260,3 +260,8 @@ em {
     margin: 23px 3%;
     width: 20%;
 }
+
+#locationMain .textCont{
+  position: relative;
+  top: -9px;
+}

@@ -24,6 +24,8 @@ main >section{
 #intro{
   padding: 20px;
   border-right: solid 1.5px #9c91ae;
+  box-sizing: border-box;
+
 }
 #intro>h3{
   font-size: 2em;
@@ -40,6 +42,7 @@ main >section{
   display: flex;
   justify-content: space-around;
   font-size: 1.5em;
+  background-image: linear-gradient(90deg,#c0bcc5,#eec772, #c0bcc5);
 }
 .visionMission h4{
   font-weight: bolder;
@@ -53,9 +56,13 @@ main >section{
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: -15px;
+  /* margin-top: -15px;
+  width: 100%;
+  height: 70px; */
+  margin-top: -38px;
   width: 100%;
   height: 70px;
+  right: -139px;
 }
 .Cat > img{
   position: absolute;
@@ -69,7 +76,8 @@ main >section{
 }
 .Cat button{
   position: absolute;
-  width: 30%;
+  /* width: 30%; */
+  width: 40%;
   height: 70px;
   border-radius: 20px;
   font-size: 40px;
@@ -102,6 +110,7 @@ main>#thefact{
     flex-direction: column;
     background: #7f7198b8;
     padding: 4%;
+    background-image: linear-gradient(45deg, #f1c86f, transparent,#ffcb6d);
 }
 #thefact>h4{
   text-transform: uppercase;
@@ -164,6 +173,7 @@ main>#thefact{
   -webkit-animation: glowlogo 2s ease-in-out infinite alternate;
   -moz-animation: glowlogo 2s ease-in-out infinite alternate;
   animation: glowlogo 2s ease-in-out infinite alternate;
+  box-sizing: border-box;
   
 }
 #slider figure {
@@ -239,6 +249,9 @@ main>#thefact{
   z-index: 5842645161142;
   transform: translateX(-250%);
   transition: transform 2s;
+  padding: 84px;
+  box-sizing: border-box;
+  background-image: linear-gradient(45deg, #c0bcc5, #ebc573);
 }
 #mtext{
   position: absolute;
@@ -248,10 +261,13 @@ main>#thefact{
   align-items: center;
   justify-content: center;
   text-align: justify;
-  background-color: #c0bcc5;
+  /* background-color: #c0bcc5; */
   z-index: 5842645161142;
   transform: translateX(250%);
   transition: transform 2s;
+  padding: 84px;
+  box-sizing: border-box;
+  background-image: linear-gradient(90deg,#ebc573 ,#c0bcc5);
 }
 #vtitle:hover h4, #mtitle:hover h4{
   animation: fadeOut 2s forwards;
@@ -272,7 +288,13 @@ main>#thefact{
     /* animation: slideInLeft forwards 2s; */
   transform: translateX(0%);
   transition: transform 2s;
-  padding: 20px;
+  /* padding: 20px; */
+  background-image: linear-gradient(90deg,#ebc573 ,#c0bcc5);
+  padding: 84px;
+  box-sizing: border-box;
+}
+#vtitle:hover #vtext{
+background-image: linear-gradient(45deg, #c0bcc5, #ebc573);
 }
 @-webkit-keyframes slideInLeft {
   0% {
