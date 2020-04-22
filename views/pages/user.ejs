@@ -48,7 +48,7 @@
               </div>
               <div class="pop-desc1 pop-desc"  >
                 <p> <strong>Gender:</strong> <%=element.gender%> </p>
-                <p> <strong><%=element.pet_type%>  Weight :</strong> <%=element.pet_weight%></p>
+                <p> <strong><%=element.pet_type%>  Weight in kg:</strong> <%=element.pet_weight%></p>
                 <p> <strong>Little description:</strong> </p>
                 <p><%=element.description%></p>
                 <p> <strong> <%=element.pet_type%> Origin  :</strong> <%=element.origin%></p>
@@ -69,23 +69,23 @@
     <form  class="updateFormUser" action="/update/<%=element.id%>?_method=put" method="post">
       <label for="pet_name"> 
         Pet name:
-        <input id="pet_name" name="pet_name" value="<%=element.pet_name%>">
+        <input required id="pet_name" name="pet_name" value="<%=element.pet_name%>">
       </label>
       <label id="breed"> The breed: 
 
-        <input name="breed" value="<%=element.breed%>">
+        <input required name="breed" value="<%=element.breed%>">
       </label>
       <label id="">  Pet weight in kg:
 
-        <input name="pet_weight" value="<%=element.pet_weight%> kg">
+        <input required name="pet_weight" value="<%=element.pet_weight%>">
       </label>
       <label >  Little description:
 
-        <input name="description" value="<%=element.description%>">
+        <input required name="description" value="<%=element.description%>">
       </label>
       <label > Pet origin:
 
-        <input name="origin" value="<%=element.origin%>">
+        <input required name="origin" value="<%=element.origin%>">
       </label>
 
       <button type="submit" id="sub-upd">Submit The Update</button>
@@ -95,7 +95,7 @@
   <%});%>
   <% }else{ %>
 <img id="imgcat" src="https://cdn.pixabay.com/photo/2012/05/07/05/36/cat-48040__340.png" alt="">
-<h3 id="fear">I am sad because you have no adobted pets</h3>
+<h3 id="fear">NO ADOPTED PETS YET</h3>
 <%}%>
   </main>
 

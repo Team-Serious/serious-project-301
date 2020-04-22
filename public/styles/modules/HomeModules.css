@@ -111,7 +111,9 @@ main>#thefact{
     background: #7f7198b8;
     padding: 4%;
     background-image: linear-gradient(45deg, #f1c86f, transparent,#ffcb6d);
-}
+    border-radius: 5px;
+    box-shadow: 8px 7px 6px grey;
+  }
 #thefact>h4{
   text-transform: uppercase;
   animation: flash infinite 3s;

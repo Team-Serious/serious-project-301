@@ -15,7 +15,8 @@
       <fieldset>
         <legend>Find veterinary</legend>
         <form class="flexColomn" action="/location" method="get">
-          <label for="se"> *insert location :</label>
+          <label for="se"><i class="fa fa-paw" style="font-size:36px"></i>
+            insert location:</label>
           <input
             id="se"
             class="feedback-input"
@@ -23,7 +24,8 @@
             name="userInput"
             placeholder="Enter location name"
           />
-          <label for="choice">*pick location type:</label>
+          <label for="choice"><i class="fa fa-paw" style="font-size:36px"></i>
+            pick location type:</label>
           <div id="choice" class="what flex">
             <div class="what">
             <label class="cont-radio flex" for="iplocation">
@@ -56,13 +58,13 @@
             </div> 
           </div>
           <div id="btndiv">
-            <button type="submit">Search</button>
+            <button type="submit"> <a href="#scrollresult">Search</a> </button>
           </div>
         </form>
       </fieldset>
       <div class="clinic">
         
-        <h2>Nearest Veterinarians found</h2>
+        <h2 id="scrollresult">Nearest Veterinarians found</h2>
       <%data.forEach(e => { %>
       
       <div class="container ">
