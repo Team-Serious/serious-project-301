@@ -137,7 +137,7 @@ function addToRehome(req, res) {
   console.log(safeValues, 'xxxxxxxxxxxxxxx');
   client.query(sql, safeValues)
     .then(() => {
-      res.redirect('/');
+      res.redirect('/rehome');
     });
 }
 
@@ -185,7 +185,7 @@ function searchResulthHandler(req, res) {
               petObjects.push(el);
             }
           });
-          url = `https://api.thecatapi.com/v1/images/search?breed_ids=${req.body.breed}&include_breeds=true&limit=12`;
+          url = `https://api.thecatapi.com/v1/images/search?breed_ids=${req.body.breed}&include_breeds=true&limit=6`;
           superagent.get(url)
             .then(data => {
               data.body.map((element, index) => {
