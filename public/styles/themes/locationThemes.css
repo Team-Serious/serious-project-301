@@ -17,11 +17,14 @@ input:focus{
 	color:#301656;
 
 }
-#locationMain button{
+#locationMain button {
   background: #301656;
   border: #ffffff 2px solid;
   color: #c8bdd8;
   font-family: 'Yanone Kaffeesatz', sans-serif;
+}
+#locationMain button> a{
+  color: #c8bdd8;
 }
 /* =============
 Radio buttons 

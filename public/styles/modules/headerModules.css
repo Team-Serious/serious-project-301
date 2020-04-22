@@ -187,4 +187,26 @@ header li{
   height: 325px;
   transition: ease 1s;
 }
-
+#foot1{
+  position: absolute;
+  margin-left: -160px;
+  display: flex;
+  flex-direction: column;
+}
+#foot1 i{
+  font-size: 36px;
+  padding: 5px;
+  transform: rotate(45deg);
+}
+#foot2{
+  position: absolute;
+  margin-left: -127px;
+  margin-top: 25px;
+  display: flex;
+  flex-direction: column;
+}
+#foot2 i{
+  font-size: 36px;
+  padding: 5px;
+  transform: rotate(45deg);
+}

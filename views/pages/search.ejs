@@ -15,26 +15,17 @@
     <main id="searchMain">
       <!-- form to search  by keyword(breed) -->
       <fieldset>
-        <legend>browse database</legend>
+        <legend>adopt a pet</legend>
         <form class="flexColomn" action="/search-result" method="post">
           <span
             >help us find homes for those pets in need. search for a cute pet
             here..</span
           >
           <!-- <br> -->
-          <label for="se"> *insert pet breed:</label>
-          <input
-            id="se"
-            class="feedback-input"
-            type="text"
-            name="breed"
-            placeholder="Enter breed name"
-            required
-          />
-          <!-- <h6  style="font-size: 18px;"></h6> -->
-          <div id="petBreeds"></div>
+          
           <!-- <br> -->
-          <label for="choice">*pick pet type:</label>
+          <label for="choice"> <i class="fa fa-paw" style="font-size:36px"></i>
+            pick pet type:</label>
           <div id="choice" class="what">
             <div class="what">
             <label class="cont-radio flex" for="cat">
@@ -66,6 +57,18 @@
             >
             </div> 
           </div>
+          <label for="se"><i class="fa fa-paw" style="font-size:36px"></i>
+            insert pet breed:</label>
+          <input
+            id="se"
+            class="feedback-input"
+            type="text"
+            name="breed"
+            placeholder="Enter breed name"
+            required
+          />
+          <!-- <h6  style="font-size: 18px;"></h6> -->
+          <div id="petBreeds"></div>
           <!-- <br> -->
           <div id="btndiv">
             <button type="submit">Search</button>

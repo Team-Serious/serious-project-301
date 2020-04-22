@@ -110,3 +110,13 @@ Radio buttons
   border-radius: 50%;
   background: #301656;
 }
+#searchMain #choice{
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 60%;
+  margin: auto;
+}
+#searchMain .what{
+  display: flex;
+}
