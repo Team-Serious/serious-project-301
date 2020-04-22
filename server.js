@@ -59,7 +59,7 @@ function locationHandler(req, res) {
   let locationType = req.query.ipRadio;
   if (locationType === 'useOtherlocation') {
     let locationFtomUser = req.query.userInput;
-    let url = `https://api.opencagedata.com/geocode/v1/json?q=${locationFtomUser}&key=${process.env.API_opencagedata_KEY}`;
+    let url = `https://api.opencagedata.com/geocode/v1/json?q=${locationFtomUser}&key=${process.env.API_OPENCAGEDATA_KEY}`;
     superagent.get(url)
       .then(data => {
         let lattitude = data.body.results[0].geometry.lat;
