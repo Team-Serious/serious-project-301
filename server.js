@@ -59,7 +59,7 @@ function locationHandler(req, res) {
   let locationType = req.query.ipRadio;
   if (locationType === 'useOtherlocation') {
     let locationFtomUser = req.query.userInput;
-    let url = `https://api.opencagedata.com/geocode/v1/json?q=${locationFtomUser}&key=${process.env.API_opencagedata_KEY}`;
+    let url = `https://api.opencagedata.com/geocode/v1/json?q=${locationFtomUser}&key=${process.env.API_OPENCAGEDATA_KEY}`;
     superagent.get(url)
       .then(data => {
         let lattitude = data.body.results[0].geometry.lat;
@@ -137,7 +137,7 @@ function addToRehome(req, res) {
   console.log(safeValues, 'xxxxxxxxxxxxxxx');
   client.query(sql, safeValues)
     .then(() => {
-      res.redirect('/');
+      res.redirect('/rehome');
     });
 }
 
@@ -185,7 +185,7 @@ function searchResulthHandler(req, res) {
               petObjects.push(el);
             }
           });
-          url = `https://api.thecatapi.com/v1/images/search?breed_ids=${req.body.breed}&include_breeds=true&limit=12`;
+          url = `https://api.thecatapi.com/v1/images/search?breed_ids=${req.body.breed}&include_breeds=true&limit=6`;
           superagent.get(url)
             .then(data => {
               data.body.map((element, index) => {
