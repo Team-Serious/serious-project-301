@@ -4,14 +4,12 @@
     <%- include('../layout/head')%>
     <title>Animal Adoption Application-Search</title>
   </head>
-
   <body>
     <img id="background" src="../../images/seriousbg.png" alt="background" />
     <header>
       <%- include('../layout/header')%>
       <!-- will be added from layot -->
     </header>
-
     <main id="searchMain">
       <!-- form to search  by keyword(breed) -->
       <fieldset>
@@ -31,7 +29,8 @@
             placeholder="Enter breed name"
             required
           />
-          <h6 id="petBreeds" style="font-size: 18px;"></h6>
+          <!-- <h6  style="font-size: 18px;"></h6> -->
+          <div id="petBreeds"></div>
           <!-- <br> -->
           <label for="choice">*pick pet type:</label>
           <div id="choice" class="what">
@@ -44,12 +43,11 @@
                 value="cat"
                 required
               />
-              <span class="newradio" id="up1"></span>
-
-              Cat</label
+              <span class="newradio"></span>
+              <span class="textCont">Cat</span>
+              </label
             >
             </div>
-
             <div class="what">
             <label class="cont-radio flex" for="dog">
               <input
@@ -59,8 +57,9 @@
                 value="dog"
                 required
               />
-              <span class="newradio" id="up2"></span>
-              Dog</label
+              <span class="newradio"></span>
+              <span class="textCont">Dog</span>
+              </label
             >
             </div> 
           </div>
@@ -73,7 +72,6 @@
     </main>
     <footer>
       <%- include('../layout/footer')%>
-
       <!-- will be added from layot -->
     </footer>
     <script src="https://code.jquery.com/jquery-3.4.1.js"></script>

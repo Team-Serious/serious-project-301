@@ -1,6 +1,5 @@
 #locationMain fieldset{
   width: 80%;
-  /* text-align: center; */
   text-transform: uppercase;
   font-size: 2.2em;
 
@@ -11,9 +10,8 @@
   position: relative;
   width: 85%;
   height: 80%;
-  /* text-align: center; */
   padding: 5%;
-  margin: 25px;
+  margin: 0 auto 10px auto;
 }
 #locationMain legend {
   text-align: center;
@@ -29,11 +27,22 @@ form span{
   
 }
 
-#btndiv>button{
+/* #btndiv>button{
   position: relative;
   padding: 15px;
   border-radius: 70px;
   width: 45%;
+  text-transform: uppercase;
+  font-size: 1.5em;
+  cursor: pointer;
+  box-shadow: #301656d6 6px 12px 12px;
+} */
+
+#btndiv>button {
+  position: relative;
+  padding: 10px;
+  border-radius: 70px;
+  width: 36%;
   text-transform: uppercase;
   font-size: 1.5em;
   cursor: pointer;
@@ -72,10 +81,8 @@ Radio buttons
 
 .newradio{
   position: absolute;
-  /* top: 0; */
-  /* left: 0; */
-  height: 30px;
-  width: 30px;
+  height: 25px;
+  width: 25px;
   background-color: #c8bdd8;
   border: 4px solid #301656;
   border-radius: 50%;
@@ -100,32 +107,32 @@ Radio buttons
   border-radius: 50%;
   background: #301656;
 }
-
+/* 
 #locationMain .clinic{
   margin: 10px 0;
   border: #301656 solid;
   width: 100%;
   height: 100vh;
   /* height: 659px; */
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: baseline;
-}
-
+  /* display: flex; */
+  /* flex-wrap: wrap; */
+  /* justify-content: center; */
+  /* align-items: baseline; */
+/* }  */
+/* 
 .sub-clinic{
   margin: 10px 10px 0 10px;
   /* height: 50px; */
-  width: 25%;
-  border: solid;
-  padding: 2%;
-  border-radius: 11px;
-  background-color: cornflowerblue;
-  box-shadow: 10px 5px gray;
-}
-.sub-clinic:hover{
-  background-color: crimson;
-}
+  /* width: 25%; */
+  /* border: solid; */
+  /* padding: 2%; */
+  /* border-radius: 11px; */
+  /* background-color: cornflowerblue; */
+  /* box-shadow: 10px 5px gray; */
+/* } */
+/* .sub-clinic:hover{ */
+  /* background-color: crimson; */
+/* } */
 /* .sub-clinic:after{
 background: url("https://c1.wallpaperflare.com/preview/330/506/524/veterinarian-animals-funny-veterinary.jpg");
 content: url("https://c1.wallpaperflare.com/preview/330/506/524/veterinarian-animals-funny-veterinary.jpg");
@@ -139,4 +146,122 @@ border: solid;
   text-align: center;
   margin: 30px 0 0;
   font-size: 40px;
+  padding: 25px;
+    background-image: linear-gradient(45deg, #301656, transparent);
+}
+
+/* .hiii{
+  background-image: url("https://cdn.dribbble.com/users/6191/screenshots/2211315/meal.gif");
+  opacity: 0.2;
+  position: absolute;
+} */
+
+.clinic{
+  margin: 10px 0;
+  /* border: #301656 solid; */
+  width: 100%;
+  height: 100vh;
+  /* height: 659px; */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: baseline;
+  flex: 1;
+}
+
+
+/* .card,
+.envelope {
+  background: #fff;
+  box-shadow: -1px 8px 3px 0 rgba(0, 0, 0, 0.6);
+  height: 21em;
+  padding: 2em;
+  position: relative;
+  width: 15em;
+} */
+.card,
+.envelope {
+/* background: #fff; */
+background-color: #e5e5e5;
+    box-shadow: -1px 8px 3px 0 rgba(0, 0, 0, 0.6);
+    height: 15em;
+    padding: 2em;
+    position: relative;
+    width: 11em;
+}
+/* .envelope {
+  background: #cb231c;
+  box-shadow: 0 3px 2px rgba(0, 0, 0, 0.8);
+  margin: -2em -2em;
+  position: absolute;
+  transform: rotate(-8deg);
+  z-index: -1;
+} */
+.envelope {
+/* background: #cb231c; */
+background-color: #301656;
+    box-shadow: 0 3px 2px rgba(0, 0, 0, 0.8);
+    margin: -2em -2em;
+    position: absolute;
+    transform: rotate(-8deg);
+    z-index: -1;
+    transition:ease-in-out 0.25s
+}
+
+
+.card:hover .envelope{
+    transform: rotate(0deg);
+    background-color: #301656;
+    box-shadow: 0 3px 2px rgba(0, 0, 0, 0.8);
+}
+
+h1 {
+  /* font-size: 2.5em; */
+  font-size: 2em;
+  font-weight: 700;
+  margin: 0;
+  text-transform: uppercase;
+  /* width: 90%; */
+}
+
+em {
+  /* color: #cc2119; */
+  color: #b1b33f;
+  font-style: normal;
+}
+
+.heart {
+  bottom: 4em;
+  position: absolute;
+  right: 4em;
+}
+
+.heart::before,
+.heart::after {
+  background-color: #cd231b;
+  border-radius: 50px 50px 0 0;
+  content: "";
+  height: 25px;
+  left: 15px;
+  position: absolute;
+  transform: rotate(-45deg);
+  transform-origin: 0 100%;
+  width: 15px;
+}
+
+.heart::after {
+  left: 0;
+  transform: rotate(45deg);
+  transform-origin: 100% 100%;
+}
+
+
+.container {
+    margin: 23px 3%;
+    width: 20%;
+}
+
+#locationMain .textCont{
+  position: relative;
+  top: -9px;
 }

@@ -13,7 +13,7 @@
   </header>
   <div class="bgblack"></div>
   <main id="userMain" class="flexColomn">
-
+<% if(pets.length){ %>
     <% pets.forEach((element,index) =>{ %>
   <div class='pet-class'>  
     <div class="divdiv">
@@ -21,8 +21,15 @@
         <div class="flex-h2">  
           <img style="width: 250px;" src="<%=element.img%>" alt="">
           <div class="pet-name">
-            <h4><%=element.pet_type%> name: <%=element.pet_name%></h4>
-            <h4><%=element.pet_type%> breed: <%=element.breed%></h4>
+            <h4>
+              <i class="fa fa-paw" style="font-size:36px"></i>
+
+              <%=element.pet_type%> name: <%=element.pet_name%></h4>
+        
+            <h4>
+              <i class="fa fa-paw" style="font-size:36px"></i>
+
+              <%=element.pet_type%> breed: <%=element.breed%></h4>
           </div>
         </div>
         <div class="flex buttonsDiv">
@@ -86,6 +93,10 @@
   </fieldset>
   </div>
   <%});%>
+  <% }else{ %>
+<img id="imgcat" src="https://cdn.pixabay.com/photo/2012/05/07/05/36/cat-48040__340.png" alt="">
+<h3 id="fear">I am sad because you have no adobted pets</h3>
+<%}%>
   </main>
 
   <footer>

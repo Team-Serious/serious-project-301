@@ -13,7 +13,17 @@
   height: 80%;
   /* text-align: center; */
   padding: 5%;
-  margin: 25px;
+  /* margin: 25px; */
+  margin: 10px auto;
+}
+#searchMain h6{
+  font-size: 18px;
+  margin: 0 2px;
+}
+#petBreeds{
+  display: flex;
+  flex-wrap: wrap;
+  height: 5%;
 }
 #searchMain legend {
   text-align: center;
@@ -80,8 +90,13 @@ Radio buttons
   position: absolute;
   display: none;
 }
-.cont-radio{
-  width: 10%;
+#searchMain .cont-radio{
+  width: 14%;
+}
+
+#searchMain .textCont{
+  position: relative;
+  top: -9px;
 }
 .cont-radio input:checked ~ .newradio:after {
   display: block;

@@ -19,7 +19,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js",
-    "hi": "npm i dotenv ejs express method-override superagent nodemon pg node-fetch"
+    "hi": "npm i dotenv ejs express method-override superagent nodemon pg"
   },
   "repository": {
     "type": "git",
